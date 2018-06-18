@@ -1,0 +1,119 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>R-News</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900|Archivo+Black|Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+
+
+  <header class="header-nav">
+    <div class="container">
+      <nav class="navbar columns is-mobile" role="navigation" aria-label="main navigation">
+
+        <div class="column is-hidden-mobile">
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-facebook"></i></a>
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-twitter"></i></a>
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-instagram"></i></a>
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-google-plus"></i></a>
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-youtube-play"></i></a>
+        </div>
+
+        <div class="column has-text-centered">
+          <a class="navbar-item is-block logo-r-news" href="#"><span class="r">R</span>-NEWS</a>
+        </div>
+
+        <div class="column has-text-right">
+          <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-search"></i></a>
+          <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-bolt"></i></a>
+          <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-bookmark-o"></i></a>
+        </div>
+
+      </nav>
+
+
+      <ul id="main-menu">
+        <li class="selected"><a href="#">Home</a></li>
+        <li><a href="#">Business</a></li>
+        <li><a href="#">Entrepreneurs</a></li>
+        <li><a href="#">Mindset</a></li>
+        <li><a href="#">Business Story</a></li>
+        <li><a href="#">Inspiration</a></li>
+        <li><a href="#">Technology</a></li>
+        <li><a href="#">Info</a></li>
+        <li><a href="#">Tips & Trick</a></li>
+        <li><a href="#">#WhatTheFacts</a></li>
+        <li><a href="#">Video</a></li>
+        <li><a href="#">Infographic</a></li>
+        <li><a href="#">Ralali.com</a></li>
+      </ul>
+
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+
+
+  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+ -->
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $('#main-menu').scrollTabs({
+        scroll_distance: 350,
+        scroll_duration: 350,
+        left_arrow_size: 26,
+        right_arrow_size: 26,
+        click_callback: function(e){
+          var val = $(this).attr('rel');
+          if(val){
+            window.location.href = val;
+          }
+        }
+      });
+
+    });
+  </script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>
