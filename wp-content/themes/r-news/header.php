@@ -13,7 +13,8 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-	<?php //wp_head(); ?>
+
+<?php //wp_head(); ?>
 
 <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -25,11 +26,12 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/normalize.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900|Archivo+Black|Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css">
-
+  <!--<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />-->
+  <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/style.css">
+  
 
 </head>
 
