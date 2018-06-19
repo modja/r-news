@@ -13,46 +13,72 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<?php //wp_head(); ?>
 
-	<?php wp_head(); ?>
+<meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>R-News</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900|Archivo+Black|Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
 </head>
 
-<body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'r-news' ); ?></a>
+<body>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$r_news_description = get_bloginfo( 'description', 'display' );
-			if ( $r_news_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $r_news_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'r-news' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+<header class="header-nav">
+    <div class="container">
+      <nav class="navbar columns is-mobile" role="navigation" aria-label="main navigation">
 
-	<div id="content" class="site-content">
+        <div class="column is-hidden-mobile">
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-facebook"></i></a>
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-twitter"></i></a>
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-instagram"></i></a>
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-google-plus"></i></a>
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-youtube-play"></i></a>
+        </div>
+
+        <div class="column has-text-centered">
+          <a class="navbar-item is-block logo-r-news" href="#"><span class="r">R</span>-NEWS</a>
+        </div>
+
+        <div class="column has-text-right">
+          <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-search"></i></a>
+          <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-bolt"></i></a>
+          <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-bookmark-o"></i></a>
+        </div>
+
+      </nav>
+
+
+      <ul id="main-menu">
+        <li class="selected"><a href="#">Home</a></li>
+        <li><a href="#">Business</a></li>
+        <li><a href="#">Entrepreneurs</a></li>
+        <li><a href="#">Mindset</a></li>
+        <li><a href="#">Business Story</a></li>
+        <li><a href="#">Inspiration</a></li>
+        <li><a href="#">Technology</a></li>
+        <li><a href="#">Info</a></li>
+        <li><a href="#">Tips & Trick</a></li>
+        <li><a href="#">#WhatTheFacts</a></li>
+        <li><a href="#">Video</a></li>
+        <li><a href="#">Infographic</a></li>
+        <li><a href="#">Ralali.com</a></li>
+      </ul>
+
+    </div>
+  </header>
+
+
+
