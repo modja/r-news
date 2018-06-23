@@ -2343,8 +2343,6 @@ a.box:active {
     width: 960px;
   }
   .container.is-fluid {
-    margin-left: 64px;
-    margin-right: 64px;
     max-width: none;
     width: auto;
   }
@@ -12036,6 +12034,59 @@ body {
 
 .scroll_tabs_container .scroll_tab_right_button::before {
   content: "\f105";
+}
+
+/* POPULAR POST SLIDER */
+.popular-post-slider a {
+  color: #fff;
+}
+.popular-post-slider figure {
+  position: relative;
+  margin: 1rem;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+}
+.popular-post-slider figure figcaption {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  padding: 1rem;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #fff;
+}
+.popular-post-slider .post-categories {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+.popular-post-slider .post-categories a {
+  display: inline-block;
+  margin-right: 0.5rem;
+  background-color: #fff;
+  border-radius: 15px;
+  line-height: 30px;
+  padding: 0 1rem;
+  color: #FD8601;
+  font-size: 14px;
+}
+.popular-post-slider .post-meta {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  width: 100%;
+}
+.popular-post-slider .post-meta span {
+  display: inline-block;
+  margin-right: 1rem;
+}
+.popular-post-slider .post-meta .is-right {
+  text-align: right;
 }
 
 /* ==========================================================================
