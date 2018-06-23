@@ -98,7 +98,7 @@ textarea {
    ========================================================================== */
 body{
     font-family: 'Raleway', sans-serif;
-    color: #4A4A4A;
+    color: $grey-darker;
 }
 
 
@@ -124,8 +124,13 @@ body{
 }
 .navbar{
     padding-top: 1.75rem;
+    color: $grey-darker;
     .column{
         padding: 0.25rem 1rem;
+    }
+    &-item,
+    &-link{
+        color: $grey-darker;
     }
 }
 .navbar-item.navbar-start{
@@ -143,12 +148,12 @@ body{
     text-align: center;
     li{
         &.selected{
-            color: #373D3F;
+            color: $grey-darker;
             font-weight: 700;
         }
         a{
             display: inline-block;
-            color: #4A4A4A;
+            color: $grey-dark;
             line-height: 30px;
             &:hover{
                 color: #FD8601;
@@ -250,6 +255,18 @@ body{
 }
 
 
+
+/* TRENDING NEWS */
+.trending-news{
+    margin: 1rem auto;
+    &-label{
+        line-height: 30px;
+    }
+    .button{
+        font-size: 14px;
+        margin-bottom: 0.5rem;
+    }
+}
 
 
 
