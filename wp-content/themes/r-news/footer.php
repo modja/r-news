@@ -19,6 +19,16 @@
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
+
+
+  	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/jquery.gsap.min.js"></script>
+
+
+
+
   <script src="<?php bloginfo( 'template_url' ); ?>/js/plugins.js"></script>
   <script src="<?php bloginfo( 'template_url' ); ?>/js/main.js"></script>
 
@@ -38,6 +48,19 @@
           }
         }
       });
+
+
+
+     jQuery(window).load(function() {
+        var film_roll = new FilmRoll({
+          configure_load: true,
+          container: '#film_roll',
+          prev: false,
+          next: false
+        });
+      });
+
+
 
     });
   </script>

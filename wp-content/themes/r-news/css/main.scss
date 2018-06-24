@@ -98,7 +98,7 @@ textarea {
    ========================================================================== */
 body{
     font-family: 'Raleway', sans-serif;
-    color: #4A4A4A;
+    color: $grey-darker;
 }
 
 
@@ -124,8 +124,13 @@ body{
 }
 .navbar{
     padding-top: 1.75rem;
+    color: $grey-darker;
     .column{
         padding: 0.25rem 1rem;
+    }
+    &-item,
+    &-link{
+        color: $grey-darker;
     }
 }
 .navbar-item.navbar-start{
@@ -143,12 +148,12 @@ body{
     text-align: center;
     li{
         &.selected{
-            color: #373D3F;
+            color: $grey-darker;
             font-weight: 700;
         }
         a{
             display: inline-block;
-            color: #4A4A4A;
+            color: $grey-dark;
             line-height: 30px;
             &:hover{
                 color: #FD8601;
@@ -190,9 +195,78 @@ body{
 
 
 
+/* POPULAR POST SLIDER */
+.popular-post-slider{
+    a{
+        color: #fff;
+    }
+    figure{
+        position: relative;
+        margin: 1rem;
+        color: #fff;
+        background-size: cover;
+        background-position: center;
+        -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+        -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+        box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+        figcaption{
+            position: absolute;
+            bottom: 2rem;
+            left: 0;
+            padding: 1rem;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 30px;
+            color: #fff;
+        }
+    }
+
+    .post-categories{
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        a{
+            display: inline-block;
+            margin-right: 0.5rem;
+            background-color: #fff;
+            border-radius: 15px;
+            line-height: 30px;
+            padding: 0 1rem;
+            color: #FD8601;
+            font-size: 14px;
+        }
+    }
+    .post-meta{
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        width: 100%;
+        span{
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        .is-left{
+
+        }
+        .is-right{
+            text-align: right;
+        }
+    }
+}
 
 
 
+/* TRENDING NEWS */
+.trending-news{
+    margin: 1rem auto;
+    &-label{
+        line-height: 30px;
+    }
+    .button{
+        font-size: 14px;
+        margin-bottom: 0.5rem;
+    }
+}
 
 
 
