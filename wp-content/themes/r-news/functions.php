@@ -182,11 +182,51 @@ function create_business() {
       'supports' => array('title',
                           'editor',
                           'thumbnail',
-                          'page-attributes')
+                          'page-attributes'),
+      'taxonomies' => array('post_tag') // this is IMPORTANT
       );
 
       register_post_type('business', $args);
 }
+
+	// Input Fields For Business
+        add_action('do_meta_boxes', function(){
+	    $postType	 = 'business';
+            $box_id0   	 = $postType . '_additional_box_id0';
+	    $box_text0   = 'Reading time';
+	    add_meta_box($box_id0, $box_text0,function(){
+               	       global $post;
+		       $custom 	 = get_post_custom($post->ID);
+		       $postType = 'business';
+		       $keyName0 = $postType . '_read_time';
+		       $val0 = get_post_meta($post->ID, $keyName0);
+		       $val0 = $val0[0];
+		     ?>
+		       <input type="text" size="50" name="<?=$keyName0?>" value="<?=$val0?>">
+		      <?php 
+	       }, 
+		$postType,'normal','high');
+        });
+
+        add_action('save_post', function(){
+           global $post; 
+	   $postType = 'business';
+           $keyName0 = $postType . '_read_time';
+           update_post_meta($post->ID, $keyName0, $_POST[$keyName0]);
+
+       });
+       
+       
+        
+         
+        
+        
+        
+
+
+
+
+
 
 
 
@@ -210,11 +250,54 @@ function create_enterpreneur() {
       'supports' => array('title',
                           'editor',
                           'thumbnail',
-                          'page-attributes')
+                          'page-attributes'),
+      'taxonomies' => array('post_tag') // this is IMPORTANT
       );
 
       register_post_type('enterpreneur', $args);
 }
+
+
+	// Input Fields For Enterpreneur
+        add_action('do_meta_boxes', function(){
+	    $postType	 = 'enterpreneur';
+            $box_id0   	 = $postType . '_additional_box_id0';
+	    $box_text0   = 'Reading time';
+	    add_meta_box($box_id0, $box_text0,function(){
+               	       global $post;
+		       $custom 	 = get_post_custom($post->ID);
+		       $postType = 'enterpreneur';
+		       $keyName0 = $postType . '_read_time';
+		       $val0 = get_post_meta($post->ID, $keyName0);
+		       $val0 = $val0[0];
+		     ?>
+		       <input type="text" size="50" name="<?=$keyName0?>" value="<?=$val0?>">
+		      <?php 
+	       }, 
+		$postType,'normal','high');
+        });
+
+        add_action('save_post', function(){
+           global $post; 
+	   $postType = 'enterpreneur';
+           $keyName0 = $postType . '_read_time';
+           update_post_meta($post->ID, $keyName0, $_POST[$keyName0]);
+
+       });
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //---------------------------------------------
@@ -236,11 +319,47 @@ function create_mindset() {
       'supports' => array('title',
                           'editor',
                           'thumbnail',
-                          'page-attributes')
+                          'page-attributes'),
+      'taxonomies' => array('post_tag') // this is IMPORTANT
       );
 
       register_post_type('mindset', $args);
 }
+
+	// Input Fields For Mindset
+        add_action('do_meta_boxes', function(){
+	    $postType	 = 'mindset';
+            $box_id0   	 = $postType . '_additional_box_id0';
+	    $box_text0   = 'Reading time';
+	    add_meta_box($box_id0, $box_text0,function(){
+               	       global $post;
+		       $custom 	 = get_post_custom($post->ID);
+		       $postType = 'mindset';
+		       $keyName0 = $postType . '_read_time';
+		       $val0 = get_post_meta($post->ID, $keyName0);
+		       $val0 = $val0[0];
+		     ?>
+		       <input type="text" size="50" name="<?=$keyName0?>" value="<?=$val0?>">
+		      <?php 
+	       }, 
+		$postType,'normal','high');
+        });
+
+        add_action('save_post', function(){
+           global $post; 
+	   $postType = 'mindset';
+           $keyName0 = $postType . '_read_time';
+           update_post_meta($post->ID, $keyName0, $_POST[$keyName0]);
+
+       });
+       
+
+
+
+
+
+
+
 
 
 
@@ -264,11 +383,48 @@ function create_businessstory() {
       'supports' => array('title',
                           'editor',
                           'thumbnail',
-                          'page-attributes')
+                          'page-attributes'),
+      'taxonomies' => array('post_tag') // this is IMPORTANT
       );
 
       register_post_type('businessstory', $args);
 }
+
+	// Input Fields For Business Story
+        add_action('do_meta_boxes', function(){
+	    $postType	 = 'businessstory';
+            $box_id0   	 = $postType . '_additional_box_id0';
+	    $box_text0   = 'Reading time';
+	    add_meta_box($box_id0, $box_text0,function(){
+               	       global $post;
+		       $custom 	 = get_post_custom($post->ID);
+		       $postType = 'businessstory';
+		       $keyName0 = $postType . '_read_time';
+		       $val0 = get_post_meta($post->ID, $keyName0);
+		       $val0 = $val0[0];
+		     ?>
+		       <input type="text" size="50" name="<?=$keyName0?>" value="<?=$val0?>">
+		      <?php 
+	       }, 
+		$postType,'normal','high');
+        });
+
+        add_action('save_post', function(){
+           global $post; 
+	   $postType = 'businessstory';
+           $keyName0 = $postType . '_read_time';
+           update_post_meta($post->ID, $keyName0, $_POST[$keyName0]);
+
+       });
+       
+
+
+
+
+
+
+
+
 
 
 
@@ -291,11 +447,47 @@ function create_inspiration() {
       'supports' => array('title',
                           'editor',
                           'thumbnail',
-                          'page-attributes')
+                          'page-attributes'),
+      'taxonomies' => array( 'post_tag') // this is IMPORTANT
       );
 
       register_post_type('inspiration', $args);
 }
+
+	// Input Fields For Inspiration
+        add_action('do_meta_boxes', function(){
+	    $postType	 = 'inspiration';
+            $box_id0   	 = $postType . '_additional_box_id0';
+	    $box_text0   = 'Reading time';
+	    add_meta_box($box_id0, $box_text0,function(){
+               	       global $post;
+		       $custom 	 = get_post_custom($post->ID);
+		       $postType = 'inspiration';
+		       $keyName0 = $postType . '_read_time';
+		       $val0 = get_post_meta($post->ID, $keyName0);
+		       $val0 = $val0[0];
+		     ?>
+		       <input type="text" size="50" name="<?=$keyName0?>" value="<?=$val0?>">
+		      <?php 
+	       }, 
+		$postType,'normal','high');
+        });
+
+        add_action('save_post', function(){
+           global $post; 
+	   $postType = 'inspiration';
+           $keyName0 = $postType . '_read_time';
+           update_post_meta($post->ID, $keyName0, $_POST[$keyName0]);
+
+       });
+       
+
+
+
+
+
+
+
 
 
 
@@ -318,11 +510,45 @@ function create_technology() {
       'supports' => array('title',
                           'editor',
                           'thumbnail',
-                          'page-attributes')
+                          'page-attributes'),
+      'taxonomies' => array( 'post_tag') // this is IMPORTANT
       );
 
       register_post_type('technology', $args);
 }
+
+	// Input Fields For Technology
+        add_action('do_meta_boxes', function(){
+	    $postType	 = 'technology';
+            $box_id0   	 = $postType . '_additional_box_id0';
+	    $box_text0   = 'Reading time';
+	    add_meta_box($box_id0, $box_text0,function(){
+               	       global $post;
+		       $custom 	 = get_post_custom($post->ID);
+		       $postType = 'technology';
+		       $keyName0 = $postType . '_read_time';
+		       $val0 = get_post_meta($post->ID, $keyName0);
+		       $val0 = $val0[0];
+		     ?>
+		       <input type="text" size="50" name="<?=$keyName0?>" value="<?=$val0?>">
+		      <?php 
+	       }, 
+		$postType,'normal','high');
+        });
+
+        add_action('save_post', function(){
+           global $post; 
+	   $postType = 'technology';
+           $keyName0 = $postType . '_read_time';
+           update_post_meta($post->ID, $keyName0, $_POST[$keyName0]);
+
+       });
+       
+
+
+
+
+
 
 
 
@@ -345,11 +571,45 @@ function create_info() {
       'supports' => array('title',
                           'editor',
                           'thumbnail',
-                          'page-attributes')
+                          'page-attributes'),
+      'taxonomies' => array('post_tag') // this is IMPORTANT
       );
 
       register_post_type('info', $args);
 }
+
+	// Input Fields For Info
+        add_action('do_meta_boxes', function(){
+	    $postType	 = 'info';
+            $box_id0   	 = $postType . '_additional_box_id0';
+	    $box_text0   = 'Reading time';
+	    add_meta_box($box_id0, $box_text0,function(){
+               	       global $post;
+		       $custom 	 = get_post_custom($post->ID);
+		       $postType = 'info';
+		       $keyName0 = $postType . '_read_time';
+		       $val0 = get_post_meta($post->ID, $keyName0);
+		       $val0 = $val0[0];
+		     ?>
+		       <input type="text" size="50" name="<?=$keyName0?>" value="<?=$val0?>">
+		      <?php 
+	       }, 
+		$postType,'normal','high');
+        });
+
+        add_action('save_post', function(){
+           global $post; 
+	   $postType = 'info';
+           $keyName0 = $postType . '_read_time';
+           update_post_meta($post->ID, $keyName0, $_POST[$keyName0]);
+
+       });
+       
+
+
+
+
+
 
 
 
@@ -373,12 +633,40 @@ function create_tipsandtrick() {
       'supports' => array('title',
                           'editor',
                           'thumbnail',
-                          'page-attributes')
+                          'page-attributes'),
+      'taxonomies' => array( 'post_tag') // this is IMPORTANT
       );
 
       register_post_type('tipsandtrick', $args);
 }
 
+	// Input Fields For Tips and Trick
+        add_action('do_meta_boxes', function(){
+	    $postType	 = 'tipsandtrick';
+            $box_id0   	 = $postType . '_additional_box_id0';
+	    $box_text0   = 'Reading time';
+	    add_meta_box($box_id0, $box_text0,function(){
+               	       global $post;
+		       $custom 	 = get_post_custom($post->ID);
+		       $postType = 'tipsandtrick';
+		       $keyName0 = $postType . '_read_time';
+		       $val0 = get_post_meta($post->ID, $keyName0);
+		       $val0 = $val0[0];
+		     ?>
+		       <input type="text" size="50" name="<?=$keyName0?>" value="<?=$val0?>">
+		      <?php 
+	       }, 
+		$postType,'normal','high');
+        });
+
+        add_action('save_post', function(){
+           global $post; 
+	   $postType = 'tipsandtrick';
+           $keyName0 = $postType . '_read_time';
+           update_post_meta($post->ID, $keyName0, $_POST[$keyName0]);
+
+       });
+       
 
 
 
@@ -401,16 +689,49 @@ function create_video() {
       'supports' => array('title',
                           'editor',
                           'thumbnail',
-                          'page-attributes')
+                          'page-attributes'),
+      'taxonomies' => array( 'post_tag') // this is IMPORTANT
       );
 
       register_post_type('video', $args);
 }
 
+	// Input Fields For Video
+        add_action('do_meta_boxes', function(){
+	    $postType	 = 'video';
+            $box_id0   	 = $postType . '_additional_box_id0';
+	    $box_text0   = 'Reading time';
+	    add_meta_box($box_id0, $box_text0,function(){
+               	       global $post;
+		       $custom 	 = get_post_custom($post->ID);
+		       $postType = 'video';
+		       $keyName0 = $postType . '_read_time';
+		       $val0 = get_post_meta($post->ID, $keyName0);
+		       $val0 = $val0[0];
+		     ?>
+		       <input type="text" size="50" name="<?=$keyName0?>" value="<?=$val0?>">
+		      <?php 
+	       }, 
+		$postType,'normal','high');
+        });
+
+        add_action('save_post', function(){
+           global $post; 
+	   $postType = 'video';
+           $keyName0 = $postType . '_read_time';
+           update_post_meta($post->ID, $keyName0, $_POST[$keyName0]);
+
+       });
+       
+
+
+
+
+
 
 
 //---------------------------------------------
-// VIDEO MENU
+// INFO GRAPHIC MENU
 //---------------------------------------------
 add_action('init', 'create_infographic');
 function create_infographic() {
@@ -429,17 +750,109 @@ function create_infographic() {
                           'editor',
                           'thumbnail',
                           'page-attributes'),
-		//'show_in_menu' => 'edit.php'
+      'taxonomies' => array( 'post_tag') // this is IMPORTANT
       );
 
       register_post_type('infographic', $args);
 }
 
+	// Input Fields For Info Graphic
+        add_action('do_meta_boxes', function(){
+	    $postType	 = 'infographic';
+            $box_id0   	 = $postType . '_additional_box_id0';
+	    $box_text0   = 'Reading time';
+	    add_meta_box($box_id0, $box_text0,function(){
+               	       global $post;
+		       $custom 	 = get_post_custom($post->ID);
+		       $postType = 'infographic';
+		       $keyName0 = $postType . '_read_time';
+		       $val0 = get_post_meta($post->ID, $keyName0);
+		       $val0 = $val0[0];
+		     ?>
+		       <input type="text" size="50" name="<?=$keyName0?>" value="<?=$val0?>">
+		      <?php 
+	       }, 
+		$postType,'normal','high');
+        });
 
-/*
-add_action('admin_menu', 'my_admin_menu'); 
-function my_admin_menu() { 
-    add_submenu_page('edit.php', 'Genre', 'Satu', 'manage_options', 'edit.php?post_type=infographic'); 
+        add_action('save_post', function(){
+           global $post; 
+	   $postType = 'infographic';
+           $keyName0 = $postType . '_read_time';
+           update_post_meta($post->ID, $keyName0, $_POST[$keyName0]);
+
+       });
+       
+
+
+
+
+
+
+
+
+
+//AFTER LOGIN, JUST REDIRECT IT INTO PARTICULAR PAGE TO PREVENT DASHBOARD MENU 
+function dashboard_redirect(){
+    wp_redirect(admin_url('edit.php?post_type=page'));
 }
-*/
+add_action('load-index.php','dashboard_redirect');
+
+
+
+
+
+//REMOVE SIDEBAR MENU
+add_action( 'admin_menu', 'my_remove_menu_pages', 999 );
+
+function my_remove_menu_pages() {
+   
+  remove_menu_page( 'edit.php' );                   	//Posts
+  remove_menu_page( 'upload.php' );                 	//Media
+  remove_menu_page( 'edit-comments.php' );          	//Comments
+  remove_menu_page( 'themes.php' );                 	//Appearance
+  //remove_menu_page( 'users.php' );                  	//Users
+  remove_menu_page( 'tools.php' );                  	//Tools
+  
+  //if the role is not an ADMINISTRATOR then remove it
+  $roles = array("author","editor","contributor","subscriber");
+  foreach($roles AS $role){
+	if(current_user_can($role))
+		remove_menu_page( 'plugins.php' );              //Plugins
+  }
+
+  remove_menu_page( 'index.php' );        		//Dashboard
+  remove_menu_page( 'options-general.php' );        	//Settings
+
+
+  //Remove tags
+  remove_submenu_page('edit.php?post_type=business', 'edit-tags.php?taxonomy=post_tag&amp;post_type=business' );
+  remove_submenu_page('edit.php?post_type=enterpreneur', 'edit-tags.php?taxonomy=post_tag&amp;post_type=enterpreneur' ); 
+  remove_submenu_page('edit.php?post_type=mindset', 'edit-tags.php?taxonomy=post_tag&amp;post_type=mindset' );
+  remove_submenu_page('edit.php?post_type=businessstory', 'edit-tags.php?taxonomy=post_tag&amp;post_type=businessstory' );
+  remove_submenu_page('edit.php?post_type=inspiration', 'edit-tags.php?taxonomy=post_tag&amp;post_type=inspiration' );
+  remove_submenu_page('edit.php?post_type=technology', 'edit-tags.php?taxonomy=post_tag&amp;post_type=technology' );
+  remove_submenu_page('edit.php?post_type=info', 'edit-tags.php?taxonomy=post_tag&amp;post_type=info' );
+  remove_submenu_page('edit.php?post_type=tipsandtrick', 'edit-tags.php?taxonomy=post_tag&amp;post_type=tipsandtrick' );
+  remove_submenu_page('edit.php?post_type=video', 'edit-tags.php?taxonomy=post_tag&amp;post_type=video' );
+  remove_submenu_page('edit.php?post_type=infographic', 'edit-tags.php?taxonomy=post_tag&amp;post_type=infographic' );
+
+
+
+};
+
+
+//REMOVE BAR LINKS
+add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
+function remove_admin_bar_links() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('updates');
+	$wp_admin_bar->remove_menu('wp-logo');
+	$wp_admin_bar->remove_menu('view-site');
+	$wp_admin_bar->remove_menu('new-content');
+	$wp_admin_bar->remove_menu('comments');
+}
+
+
+
 
