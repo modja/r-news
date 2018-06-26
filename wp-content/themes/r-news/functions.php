@@ -813,8 +813,9 @@ function my_remove_menu_pages() {
   remove_menu_page( 'themes.php' );                 	//Appearance
   //remove_menu_page( 'users.php' );                  	//Users
   remove_menu_page( 'tools.php' );                  	//Tools
+  remove_menu_page( 'edit.php?post_type=page' );    //Pages
   
-  //if the role is not an ADMINISTRATOR then remove it
+//if the role is not an ADMINISTRATOR then remove it
   $roles = array("author","editor","contributor","subscriber");
   foreach($roles AS $role){
 	if(current_user_can($role))
@@ -851,6 +852,7 @@ function remove_admin_bar_links() {
 	$wp_admin_bar->remove_menu('view-site');
 	$wp_admin_bar->remove_menu('new-content');
 	$wp_admin_bar->remove_menu('comments');
+
 }
 
 
