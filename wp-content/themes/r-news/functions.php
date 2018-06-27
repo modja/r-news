@@ -162,7 +162,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 //SANDY START EDIT HERE
 
-
+/**
 //---------------------------------------------
 // BUSINESS MENU
 //---------------------------------------------
@@ -855,7 +855,7 @@ function remove_admin_bar_links() {
 
 }
 
-
+**/
 
 
 
