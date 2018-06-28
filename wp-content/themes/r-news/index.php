@@ -14,124 +14,14 @@
 
 get_header();
 ?>
-  <!-- POPULAR POST SLIDER -->
-  <section class="container is-fluid">
-    <div id="film_roll" class="popular-post-slider">
-      <div>
-        <figure>
-          <img src="http://fpoimg.com/556x291?text=Preview">
-          <div class="post-categories">
-            <a href="#">Entrepeuneurs</a> <a href="#">Bussines</a> 
-          </div>
-          <figcaption><a href="#">Bisnis Biskuit Coklat, Modal Kecil Peluang Besar Untung Besar</a></figcaption>
-          <div class="post-meta columns">
-            <div class="column is-one-third">
-              <span class="post-date">2 jam lalu</span>
-            </div>
-            <div class="column has-text-right">
-              <span class="post-comment"><i class="fa fa-comment"></i></span>
-              <span class="post-share"><i class="fa fa-share"></i></span>
-              <span class="post-bookmark"><i class="fa fa-bookmark-o"></i></span>
-            </div>
-          </div>
-        </figure>
-      </div>
-      <div>
-        <figure>
-          <img src="http://fpoimg.com/556x291?text=Preview">
-          <div class="post-categories">
-            <a href="#">Entrepeuneurs</a> <a href="#">Bussines</a> 
-          </div>
-          <figcaption><a href="#">Bisnis Biskuit Coklat, Modal Kecil Peluang Besar Untung Besar</a></figcaption>
-          <div class="post-meta columns">
-            <div class="column is-left is-one-third">
-              <span class="post-date">2 jam lalu</span>
-            </div>
-            <div class="column is-right">
-              <span class="post-comment"><i class="fa fa-comment"></i></span>
-              <span class="post-share"><i class="fa fa-share"></i></span>
-              <span class="post-bookmark"><i class="fa fa-bookmark-o"></i></span>
-            </div>
-          </div>
-        </figure>
-      </div>
-      <div>
-        <figure>
-          <img src="http://fpoimg.com/556x291?text=Preview">
-          <div class="post-categories">
-            <a href="#">Entrepeuneurs</a> <a href="#">Bussines</a> 
-          </div>
-          <figcaption><a href="#">Bisnis Biskuit Coklat, Modal Kecil Peluang Besar Untung Besar</a></figcaption>
-          <div class="post-meta columns">
-            <div class="column is-left is-one-third">
-              <span class="post-date">2 jam lalu</span>
-            </div>
-            <div class="column is-right">
-              <span class="post-comment"><i class="fa fa-comment"></i></span>
-              <span class="post-share"><i class="fa fa-share"></i></span>
-              <span class="post-bookmark"><i class="fa fa-bookmark-o"></i></span>
-            </div>
-          </div>
-        </figure>
-      </div>
-      <div>
-        <figure>
-          <img src="http://fpoimg.com/556x291?text=Preview">
-          <div class="post-categories">
-            <a href="#">Entrepeuneurs</a> <a href="#">Bussines</a> 
-          </div>
-          <figcaption><a href="#">Bisnis Biskuit Coklat, Modal Kecil Peluang Besar Untung Besar</a></figcaption>
-          <div class="post-meta columns">
-            <div class="column is-left is-one-third">
-              <span class="post-date">2 jam lalu</span>
-            </div>
-            <div class="column is-right">
-              <span class="post-comment"><i class="fa fa-comment"></i></span>
-              <span class="post-share"><i class="fa fa-share"></i></span>
-              <span class="post-bookmark"><i class="fa fa-bookmark-o"></i></span>
-            </div>
-          </div>
-        </figure>
-      </div>
-      <div>
-        <figure>
-          <img src="http://fpoimg.com/556x291?text=Preview">
-          <div class="post-categories">
-            <a href="#">Entrepeuneurs</a> <a href="#">Bussines</a> 
-          </div>
-          <figcaption><a href="#">Bisnis Biskuit Coklat, Modal Kecil Peluang Besar Untung Besar</a></figcaption>
-          <div class="post-meta columns">
-            <div class="column is-left is-one-third">
-              <span class="post-date">2 jam lalu</span>
-            </div>
-            <div class="column is-right">
-              <span class="post-comment"><i class="fa fa-comment"></i></span>
-              <span class="post-share"><i class="fa fa-share"></i></span>
-              <span class="post-bookmark"><i class="fa fa-bookmark-o"></i></span>
-            </div>
-          </div>
-        </figure>
-      </div>
-    </div>
-  </section>
-  <!-- / END POPULAR POST SLIDER -->
+index.php
 
 
-  <!-- TRENDING NEWS -->
-  <section class="container">
-    <div class="trending-news columns">
-      <div class="column">
-        <span class="trending-news-label">Trending News :</span> 
-        <a class="button is-rounded is-dark" href="#">Kaos Pisang</a>
-        <a class="button is-rounded is-dark" href="#">Warung kopi</a>
-        <a class="button is-rounded is-dark" href="#">Bistro Murah</a>
-        <a class="button is-rounded is-dark" href="#">Bisnis Kopi JaBoDeTaBek</a>
-      </div>
-    </div>
-  </section>
 
-	
+<?php get_template_part( 'template-parts/index/column', 'slider' ); ?>
+<?php get_template_part( 'template-parts/index/column', 'trending' ); ?>
+<?php get_template_part( 'template-parts/index/column', 'center' ); ?>
+
 <?php
 //get_sidebar();
 get_footer();
-?>

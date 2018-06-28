@@ -9,13 +9,10 @@
 
 get_header();
 ?>
+archive.php
+ 		<?php if ( have_posts() ) : ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
+			<header>
 				<?php
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="archive-description">', '</div>' );
@@ -45,9 +42,7 @@ get_header();
 		endif;
 		?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
+	 
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();

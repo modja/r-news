@@ -11,29 +11,12 @@
 
 ?>
 
-
-<script src="<?php bloginfo( 'template_url' ); ?>/js/vendor/modernizr-3.6.0.min.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
- -->
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+ 
+<?php wp_footer(); ?>
 
 
 
-  	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/jquery.gsap.min.js"></script>
-
-
-
-
-  <script src="<?php bloginfo( 'template_url' ); ?>/js/plugins.js"></script>
-  <script src="<?php bloginfo( 'template_url' ); ?>/js/main.js"></script>
-
-
-  <script type="text/javascript">
+ <script type="text/javascript">
     $(document).ready(function(){
 
       $('#main-menu').scrollTabs({
@@ -51,7 +34,8 @@
 
 
 
-     jQuery(window).load(function() {
+
+      jQuery(window).load(function() {
         var film_roll = new FilmRoll({
           configure_load: true,
           container: '#film_roll',
@@ -62,6 +46,36 @@
 
 
 
+      // $('.featured-slider').slick({
+      //   centerMode: true,
+      //   centerPadding: '440px',
+      //   slidesToShow: 1,
+      //   slidesToScroll: 1,
+      //   autoplay: false,
+      //   autoplaySpeed: 2000,
+      //   respondTo: 'window',
+      //   responsive: [
+      //     {
+      //       breakpoint: 1200,
+      //       settings: {
+      //         arrows: false,
+      //         centerMode: true,
+      //         centerPadding: '360px',
+      //         slidesToShow: 1
+      //       }
+      //     },
+      //     {
+      //       breakpoint: 768,
+      //       settings: {
+      //         arrows: false,
+      //         centerMode: true,
+      //         centerPadding: '40px',
+      //         slidesToShow: 1
+      //       }
+      //     }
+      //   ]
+      // });
+
     });
   </script>
 
@@ -70,10 +84,8 @@
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
   </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-	
 
-<?php wp_footer(); ?>
+
 
 </body>
 </html>
