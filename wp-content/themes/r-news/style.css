@@ -1389,12 +1389,36 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 }
 
 .box {
-  background-color: white;
   border-radius: 6px;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   color: #7a7a7a;
   display: block;
-  padding: 1.25rem;
+  padding: 0rem;
+  background-color: white;
+}
+.box.is-green {
+  background-color: #84ccc0;
+}
+.box.is-purple {
+  background-color: #c595d3;
+}
+.box figure img {
+  border-radius: 6px 6px 0px 0px;
+  width: 100%;
+  max-width: 100%;
+}
+.box figure figcaption {
+  padding: 1rem;
+  font-size: 14px;
+}
+.box figure figcaption .post-meta {
+  font-size: 11px;
+}
+.box figure figcaption .post-meta .has-text-left span {
+  margin-right: 0.5rem;
+}
+.box figure figcaption .post-meta .has-text-right span {
+  margin-left: 0.5rem;
 }
 
 a.box:hover, a.box:focus {
@@ -8439,8 +8463,8 @@ label.panel-block:hover {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.7.0");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+  src: url("fonts/fontawesome-webfont.eot?v=4.7.0");
+  src: url("fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -12103,6 +12127,33 @@ body {
 .trending-news .button {
   font-size: 14px;
   margin-bottom: 0.5rem;
+}
+
+/* KABAR BISNIS TERBARU */
+.kabar-bisnis-terbaru {
+  margin: 2rem 0;
+}
+
+/* POST CARD */
+.post-card .post-categories {
+  color: #12a799;
+  margin-bottom: 11px;
+}
+.post-card .post-categories a {
+  color: #12a799;
+}
+.post-card .title {
+  margin-bottom: 8px;
+}
+.post-card .columns.is-gapless:not(:last-child) {
+  margin-bottom: 12px;
+}
+.post-card .blurb {
+  margin-bottom: 14px;
+}
+.post-card.image-related-promo {
+  background-position: center;
+  background-size: cover;
 }
 
 /* ==========================================================================
