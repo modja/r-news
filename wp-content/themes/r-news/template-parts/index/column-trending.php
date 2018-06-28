@@ -8,20 +8,27 @@
  */
 
 ?>
-  
-  
+ 
    <!-- TRENDING NEWS -->
   <section class="trending-news">
     <div class="container">
       <div class="columns">
         <div class="column">
           <span class="trending-news-label">Trending News :</span> 
-          <a class="button is-rounded is-dark" href="#">Kaos Pisang</a>
-          <a class="button is-rounded is-dark" href="#">Warung kopi</a>
-          <a class="button is-rounded is-dark" href="#">Bistro Murah</a>
-          <a class="button is-rounded is-dark" href="#">Bisnis Kopi JaBoDeTaBek</a>
+          <?php
+          	global $post;
+		$args = array( 'numberposts' => 5, 'offset'=> 0);
+		$myposts = get_posts( $args );
+		foreach( $myposts as $post ) :  
+		setup_postdata($post); ?>
+         
+         <a class="button is-rounded is-dark"  href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+         <?php endforeach; wp_reset_postdata(); ?>
+
+        
         </div>
       </div>
     </div>
   </section>
   <!-- /END TRENDING NEWS -->
+
