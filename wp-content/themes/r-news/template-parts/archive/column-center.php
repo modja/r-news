@@ -23,8 +23,8 @@
 
      
  	<?php
-		global $post;
-		$args = array( 'numberposts' => 8, 'offset'=> 0);
+		global $post,$cat;
+		$args = array( 'numberposts' => 8, 'offset'=> 0 , 'category' => $cat);
 		$myposts = get_posts( $args );
 		$number = 1;
 		foreach( $myposts as $post ){
