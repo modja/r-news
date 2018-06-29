@@ -11,13 +11,16 @@ global $post,$cat;
 #echo $cat;
 ?>
 
+
+
 <!-- KABAR BISNIS TERBARU -->
   <div class="container is-fullhd">
     <section class="kabar-bisnis-terbaru">
 
      <div class="column">
-      <h4 class="title is-4 is-inline-block">Kabar Bisnis Terbaru</h4> 
-	<h6 class="subtitle is-6 is-inline-block">Perkembangan bisnis saat ini</h6>
+	
+      	<h4 class="title is-4 is-inline-block"><?php echo get_cat_name($cat);?></h4> 
+	<!--<h6 class="subtitle is-6 is-inline-block">Perkembangan bisnis saat ini</h6>-->
      </div>
 
  
