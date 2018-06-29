@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" >
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -22,20 +22,19 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				r_news_posted_on();
-				r_news_posted_by();
+				the_content();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php r_news_post_thumbnail(); ?>
+	 
 
 	<div class="entry-content">
 		<?php
 		the_content( sprintf(
 			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
+		
 				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'r-news' ),
 				array(
 					'span' => array(
@@ -53,7 +52,4 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php r_news_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -59,7 +59,8 @@ global $post,$cat;
             		echo $category_list;
 			?>
                   </div>
-                  <a href="#"><h6 class="title is-6"><?php the_title(); ?></h6></a>
+  		 
+                  <a href="<?php echo esc_url( get_permalink() ) ?>"><h6 class="title is-6"><?php the_title() ?></h6></a>
                   <div class="post-meta columns is-mobile is-gapless">
                     <div class="column has-text-left">
                       <span class="post-date">
