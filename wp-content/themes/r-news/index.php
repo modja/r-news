@@ -14,9 +14,6 @@
 
 get_header();
 ?>
-index.php
-
-
 
 <?php get_template_part( 'template-parts/index/column', 'slider' ); ?>
 <?php get_template_part( 'template-parts/index/column', 'trending' ); ?>

@@ -48,19 +48,24 @@
 
       <?php
         $menu_name = 'menu-1';
-        $locations = get_nav_menu_locations();
-        
+        $locations = get_nav_menu_locations();        
         $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
         $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
-        ?>
+	?>
             
         <ul id="main-menu">
-            <li class="selected"><a href="">Home</a></li>
+		 
+            <li <?php echo (empty($cat)==1) ? "class='selected'" : "" ?>><a href="">Home</a></li>
             <?php
                foreach( $menuitems as $item ):
+		
+                    $object_id = $item->object_id;
                     $title = $item->title;
                     $link = $item->url;
-                    echo sprintf("<li><a href=%s>%s</a></li>\n",$link,$title);
+			if($object_id == $cat)
+			echo sprintf("<li class='selected'><a href=%s>%s</a> </li>\n",$link,$title);	
+				else                    	
+			echo sprintf("<li><a href=%s>%s</a> </li>\n",$link,$title);
                 endforeach;
                 ?>
            </ul>

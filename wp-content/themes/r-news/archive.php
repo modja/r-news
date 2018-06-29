@@ -14,7 +14,9 @@
 
 get_header();
 ?>
+<!--
 archive.php
+-->
 
 
 

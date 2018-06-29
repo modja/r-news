@@ -7,7 +7,10 @@
  * @package r-news
  */
 
+global $post,$cat;
+#echo $cat;
 ?>
+
 <!-- KABAR BISNIS TERBARU -->
   <div class="container is-fullhd">
     <section class="kabar-bisnis-terbaru">
@@ -23,7 +26,9 @@
 
      
  	<?php
-		global $post,$cat;
+
+		
+
 		$args = array( 'numberposts' => 8, 'offset'=> 0 , 'category' => $cat);
 		$myposts = get_posts( $args );
 		$number = 1;
