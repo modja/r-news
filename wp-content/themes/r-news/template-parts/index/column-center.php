@@ -19,21 +19,17 @@
 
  
 
-      <div class="column">
-
-     
+      <div class="column">     
  	<?php
 		global $post;
-		$args = array( 'numberposts' => 8, 'offset'=> 0);
-		$myposts = get_posts( $args );
-		$number = 1;
+		$args 		= array( 'numberposts' => 8, 'offset'=> 0);
+		$myposts 	= get_posts( $args );
+		$number 	= 1;
 		foreach( $myposts as $post ){
 		setup_postdata($post); 
 	?>
 	
-	<?php 
-	if(($number%3) == 1){ 
-	?>
+	<?php if(($number%3) == 1){ ?>
 	<div class="tile is-ancestor">
 	<?php }?>
 	 
@@ -54,7 +50,7 @@
             		echo $category_list;
 			?>
                   </div>
-                  <a href="#"><h6 class="title is-6"><?php the_title(); ?></h6></a>
+                  <a href="<?php echo get_permalink(); ?>"><h6 class="title is-6"><?php the_title(); ?></h6></a>
                   <div class="post-meta columns is-mobile is-gapless">
                     <div class="column has-text-left">
                       <span class="post-date">
@@ -74,8 +70,18 @@
                   </div>
                   <div class="post-meta columns is-mobile">
                     <div class="column has-text-left">
-                      <span class="post-comment"><i class="fa fa-eye"></i> 2081</span>
-                      <span class="post-share"><i class="fa fa-comments-o"></i></span>
+                      <span class="post-comment">
+			<i class="fa fa-eye"></i> 
+			<?php echo (get_post_meta( $post->ID, 'readcounter', true ))==''?0:get_post_meta( $post->ID, 'readcounter', true );?>
+			</span>
+
+                      <span class="post-share">
+			<i class="fa fa-comments-o"></i>
+			<?php
+			$comments = wp_count_comments($post->ID);
+			echo $comments->approved;
+			?>
+		     </span>
                     </div>
                     <div class="column has-text-right">
                       <span class="post-share"><i class="fa fa-share-square-o"></i></span>
