@@ -12187,6 +12187,43 @@ body {
   width: 350px;
 }
 
+/* SINGLE POST */
+.single-post .content-wrapper {
+  padding: 32px 102px;
+}
+.single-post .featured-image img {
+  width: 100%;
+}
+.single-post .categories {
+  margin-bottom: 24px;
+  color: #fe8801;
+}
+.single-post .categories a {
+  color: #fe8801;
+}
+.single-post .tags {
+  margin: 2rem 0;
+}
+.single-post .tags a {
+  margin-right: 1rem;
+}
+.single-post .title a {
+  color: #373d3f;
+}
+.single-post .content-text-editor h1, .single-post .content-text-editor h2, .single-post .content-text-editor h3, .single-post .content-text-editor h4, .single-post .content-text-editor h5, .single-post .content-text-editor h6 {
+  font-weight: bold;
+  margin: 1rem 0;
+}
+.single-post .content-text-editor p {
+  margin-bottom: 1rem;
+}
+
+.related-news {
+  padding-top: 66px;
+  padding-bottom: 66px;
+  background-color: #F7F7F7;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
