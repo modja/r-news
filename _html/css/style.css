@@ -1429,10 +1429,10 @@ a.box:active {
 }
 
 .button {
-  background-color: #fe8801;
+  background-color: white;
   border-color: #dbdbdb;
   border-width: 1px;
-  color: white;
+  color: #373d3f;
   cursor: pointer;
   justify-content: center;
   padding-bottom: calc(0.375em - 1px);
@@ -2267,7 +2267,7 @@ a.box:active {
   color: #fff;
 }
 .button.is-small {
-  border-radius: 6px;
+  border-radius: 2px;
   font-size: 0.75rem;
 }
 .button.is-medium {
