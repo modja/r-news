@@ -12157,9 +12157,16 @@ body {
   margin-bottom: 14px;
 }
 
-.post-card.image-related-promo {
+.post-card.image-related-promo,
+.post-card.image-leads-magnet {
   background-position: center;
   background-size: cover;
+}
+.post-card.image-related-promo a,
+.post-card.image-leads-magnet a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* NEWSLETTER */
