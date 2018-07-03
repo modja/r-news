@@ -1,50 +1,16 @@
-<?php
-/**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package r-news
- */
-
-global $post,$cat;
-#echo $cat;
-?>
-
-
-
-<!-- KABAR BISNIS TERBARU -->
-  <div class="container is-fullhd">
-    <section class="kabar-bisnis-terbaru">
-
-     <div class="column">
 	
-      	<h4 class="title is-4 is-inline-block"><?php echo get_cat_name($cat);?></h4> 
-	<!--<h6 class="subtitle is-6 is-inline-block">Perkembangan bisnis saat ini</h6>-->
-     </div>
-
- 
-
-      <div class="column">
-
-     
- 	<?php
-
-		
-
-		$args = array( 'numberposts' => 8, 'offset'=> 0 , 'category' => $cat);
-		$myposts = get_posts( $args );
-		$number = 1;
+<div class="tile is-ancestor">
+ 	
+	<?php
+		global $post;
+		$args 		= array( 'numberposts' => 3, 'offset'=> 0);
+		$myposts 	= get_posts( $args );
+		$number 	= 1;
+		$c 		= 1;
 		foreach( $myposts as $post ){
 		setup_postdata($post); 
 	?>
-	
-	<?php 
-	if(($number%3) == 1){ 
-	?>
-	<div class="tile is-ancestor">
-	<?php }?>
-	 
+
           <div class="tile is-parent">
             <article class="tile is-child box post-card">
               <figure>
@@ -62,14 +28,16 @@ global $post,$cat;
             		echo $category_list;
 			?>
                   </div>
-  		 
-                  <a href="<?php echo esc_url( get_permalink() ) ?>"><h6 class="title is-6"><?php the_title() ?></h6></a>
-                  <div class="post-meta columns is-mobile is-gapless">
+                  <a href="<?php echo get_permalink(); ?>">
+			<h6 class="title is-6"><?php the_title(); ?></h6>
+	   	  </a>
+                  
+		<div class="post-meta columns is-mobile is-gapless">
                     <div class="column has-text-left">
                       <span class="post-date">
 			<?php printf( _x( '%s ago', 
-                                                        '%s = human-readable time difference', 
-                                                        'your-text-domain' ), 
+                                          '%s = human-readable time difference', 
+                                          'your-text-domain' ), 
 					human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?>
 			</span>
                     </div>
@@ -83,10 +51,11 @@ global $post,$cat;
                   </div>
                   <div class="post-meta columns is-mobile">
                     <div class="column has-text-left">
-                      <span class="post-comment">
+                      
+		     <span class="post-comment">
 			<i class="fa fa-eye"></i> 
 			<?php echo (get_post_meta( $post->ID, 'readcounter', true ))==''?0:get_post_meta( $post->ID, 'readcounter', true );?>
-			</span>
+		     </span>
 
                       <span class="post-share">
 			<i class="fa fa-comments-o"></i>
@@ -94,7 +63,7 @@ global $post,$cat;
 			$comments = wp_count_comments($post->ID);
 			echo $comments->approved;
 			?>
-		     </span>
+		       </span>
                     </div>
                     <div class="column has-text-right">
                       <span class="post-share"><i class="fa fa-share-square-o"></i></span>
@@ -106,34 +75,21 @@ global $post,$cat;
             </article>
           </div>
 
-	<?php
-	if(($number%3) == 0){
-	?>
+
+ 	<?php 
 	
-	<!-- Widget : leads Magnet start here -->
-	 <div class="tile is-parent">
-          <article class="tile is-child box post-card image-related-promo" style="background-image: url('http://fpoimg.com/400x600?text=2:3&bg_color=85c0db&text_color=ffffff')">
-              <figure class="">
-              </figure>
-            </article>
-          </div>
-	<!-- Widget : leads Magnet end here -->
-	
-		</div>
-	<?php };
-	//endforeach
-	$number++;
-	
-	
-	}
+	}; //endforeach
 	wp_reset_postdata(); 
 	?>
 
-
-	</div>
-
-
+	 <div class="tile is-parent">
+          <article class="tile is-child box post-card image-related-promo" 
+		style="background-image: url('http://fpoimg.com/400x600?text=2:3&bg_color=85c0db&text_color=ffffff')">
+              <figure class=""></figure>
+            </article>
+          </div>
  
-    </section>
-  </div>
-  <!-- /END KABAR BISNIS TERBARU -->
+
+	
+	
+</div>	
