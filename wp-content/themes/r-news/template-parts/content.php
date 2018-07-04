@@ -116,7 +116,24 @@ update_post_meta( $post->ID, 'readcounter', $count );
 
 
 
-      </div>
+ 
+<?php
+
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
+
+?>
+
+
+
+
+
+
+<?php get_template_part( 'template-parts/single/column', 'center' ); ?>
+</div>
 
 
  
