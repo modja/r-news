@@ -1,17 +1,47 @@
+<?php
+/**
+ * Template part for displaying posts
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package r-news
+ */
+
+global $post,$cat;
+#echo $cat;
+?>
+
+
+
+<!-- KABAR BISNIS TERBARU -->
+  <div class="container is-fullhd">
+    <section class="kabar-bisnis-terbaru">
+
+     <div class="column">
 	
-<div class="tile is-ancestor">
- 	
-	<?php
-		global $post;
-		$args 		= array( 'numberposts' => 3, 'offset'=> 0);
-		$myposts 	= get_posts( $args );
-		$number 	= 1;
-		$c 		= 1;
+      	<h4 class="title is-4 is-inline-block"><?php echo get_cat_name($cat);?></h4> 
+	<!--<h6 class="subtitle is-6 is-inline-block">Perkembangan bisnis saat ini</h6>-->
+     </div>
+
+ 
+
+      <div class="column">
+	<div class="tile is-ancestor">
+	 
+     
+ 	<?php
+
+		
+
+		//$args = array( 'numberposts' => 4, 'offset'=> 0 , 'category' => $cat);
+		$args = array( 'numberposts' => 4, 'offset'=> 0 );
+		$myposts = get_posts( $args );
+		$number = 1;
 		foreach( $myposts as $post ){
 		setup_postdata($post); 
 	?>
-
-          <div class="tile is-parent">
+	
+	   <div class="tile is-parent">
             <article class="tile is-child box post-card">
               <figure>
                <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
@@ -28,16 +58,14 @@
             		echo $category_list;
 			?>
                   </div>
-                  <a href="<?php echo get_permalink(); ?>">
-			<h6 class="title is-6"><?php the_title(); ?></h6>
-	   	  </a>
-                  
-		<div class="post-meta columns is-mobile is-gapless">
+  		 
+                  <a href="<?php echo esc_url( get_permalink() ) ?>"><h6 class="title is-6"><?php the_title() ?></h6></a>
+                  <div class="post-meta columns is-mobile is-gapless">
                     <div class="column has-text-left">
                       <span class="post-date">
 			<?php printf( _x( '%s ago', 
-                                          '%s = human-readable time difference', 
-                                          'your-text-domain' ), 
+                                                        '%s = human-readable time difference', 
+                                                        'your-text-domain' ), 
 					human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?>
 			</span>
                     </div>
@@ -51,11 +79,10 @@
                   </div>
                   <div class="post-meta columns is-mobile">
                     <div class="column has-text-left">
-                      
-		     <span class="post-comment">
+                      <span class="post-comment">
 			<i class="fa fa-eye"></i> 
 			<?php echo (get_post_meta( $post->ID, 'readcounter', true ))==''?0:get_post_meta( $post->ID, 'readcounter', true );?>
-		     </span>
+			</span>
 
                       <span class="post-share">
 			<i class="fa fa-comments-o"></i>
@@ -63,7 +90,7 @@
 			$comments = wp_count_comments($post->ID);
 			echo $comments->approved;
 			?>
-		       </span>
+		     </span>
                     </div>
                     <div class="column has-text-right">
                       <span class="post-share"><i class="fa fa-share-square-o"></i></span>
@@ -74,22 +101,17 @@
               </figure>
             </article>
           </div>
-
-
- 	<?php 
-	
-	}; //endforeach
+	 <?php
+	}
 	wp_reset_postdata(); 
 	?>
-	<!-- leads magnet  -->
-	 <div class="tile is-parent">
-          <article class="tile is-child box post-card image-related-promo" 
-		style="background-image: url('http://fpoimg.com/400x600?text=2:3&bg_color=85c0db&text_color=ffffff')">
-              <figure class=""></figure>
-            </article>
-          </div>
- 
+	</div>
+	 
 
-	
-	
-</div>	
+	</div>
+
+
+ 
+    </section>
+  </div>
+  <!-- /END KABAR BISNIS TERBARU -->

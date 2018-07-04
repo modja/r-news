@@ -9,7 +9,7 @@
 
 $categories = get_the_category();
 $cat_id = $categories[0]->cat_ID;
-$ancestors = get_category_parents($cat_id, true, ' &raquo; ');
+$ancestors = get_category_parents($cat_id, true, ', ');
 
 //read counter
 $count = get_post_meta( $post->ID, 'readcounter', true );
@@ -19,68 +19,121 @@ if ($count =='') {
   $count++;
 
 update_post_meta( $post->ID, 'readcounter', $count );
+?>
+
+<div id="post-<?php the_ID(); ?>" class="content-wrapper">
+        <div class="categories">
+ 	<?php
+		echo $ancestors;
+		echo '<span class="breadcrumb-active-cat">'.the_title().'</span>';
+	?>
+        </div>
+        <h1 class="title is-1"><?php the_title()?></h1>
+        <div class="meta columns is-mobile is-gapless">
+          <div class="column has-text-left">
+            <span class="post-date">
+              Share to 
+              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-facebook"></i></a>
+              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-twitter"></i></a>
+              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-instagram"></i></a>
+              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-google-plus"></i></a>
+              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-youtube-play"></i></a>
+            </span>
+          </div>
+          <div class="column has-text-right">
+            <span class="post-read-time"><?php echo get_post_meta( $post->ID, 'timeforread', true );?> <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-bookmark-o"></i></a></span>
+          </div>
+        </div>
+        <div class="blurb">
+		 <?php
+		if ( 'post' === get_post_type() ) :
+				?>
+				<div class="entry-meta">
+					<?php
+					the_content();
+					?>
+				</div><!-- .entry-meta -->
+			<?php endif; 
+		?>
+        </div>
+
+<hr>
+
+        <div class="tags">
+		<?php
+		$posttags = get_the_tags();
+		if ($posttags) {
+		  foreach($posttags as $tag) {
+		    echo sprintf("<a href='%s' class='button is-light is-rounded'>%s</a>",get_tag_link($tag->term_id),$tag->name) ; 
+		  }
+		}
+		?>
+		
+	</div>
+
+        <span class="post-date">
+          Share to 
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-facebook"></i></a>
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-twitter"></i></a>
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-instagram"></i></a>
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-google-plus"></i></a>
+          <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-youtube-play"></i></a>
+        </span>
+
+        <hr>
+        <br>
+
+        <div class="title is-4">Penulis</div>
+
+        <section class="media">
+
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <?php  echo get_avatar( get_the_author_meta( 'ID' ), 64 );?>
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong><?php echo sprintf("%s %s",get_the_author_meta("first_name"),get_the_author_meta("last_name"));?></strong>
+                <br>
+                <?php echo sprintf("%s",nl2br(get_the_author_meta('description')));?> 
+              </p>
+            </div>
+          </div>
+          <div class="media-right">
+            <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-facebook"></i></a>
+            <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-twitter"></i></a>
+            <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-instagram"></i></a>
+            <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-google-plus"></i></a>
+            <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-youtube-play"></i></a>
+          </div>
+        </section>
+
+        <hr>
+        <br>
+
+
+
+
+ 
+<?php
+
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
 
 
 ?>
 
 
 
-<div>
-	<?php
-	echo '<a href="">Home</a> &raquo; ';
-	echo $ancestors;
-	echo '<span class="breadcrumb-active-cat">'.the_title().'</span>';
-	?>
+
+
+
+<?php get_template_part( 'template-parts/single/column', 'center' ); ?>
 </div>
 
 
-<article id="post-<?php the_ID(); ?>" >
-	<header class="entry-header">
-		<h1 class="entry-title"><?php the_title()?></h1>
-		<h2><?php echo get_post_meta( $post->ID, 'timeforread', true );?></h2>
-
-		<?php
-		/**
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-		**/
-		
-
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				the_content();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	 
-
-	<div class="entry-content">
-		<?php
-		the_content( sprintf(
-			wp_kses(
-		
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'r-news' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
-
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'r-news' ),
-			'after'  => '</div>',
-		) );
-		?>
-	</div><!-- .entry-content -->
-
-</article><!-- #post-<?php the_ID(); ?> -->
+ 
