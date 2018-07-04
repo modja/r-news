@@ -42,7 +42,7 @@
         </div>
 
         <div class="column has-text-right">
-          <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-search"></i></a>
+          <a id="mainsearchTrigger" class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-search"></i></a>
           <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-bolt"></i></a>
           <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-bookmark-o"></i></a>
         </div>
@@ -68,6 +68,20 @@
 
     </div>
   </header>
+
+
+  <!-- MAIN SEARCH PANEL -->
+  <section id="mainsearch" class="search-panel">
+    <div class="container">
+      <div class="title">Informasi apa yang ingin Anda ketahui?</div>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input is-large" type="email" placeholder="Ketik disini">
+        <span class="icon is-medium is-left">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+  </section>
 
 
   <!-- SINGLE POST CONTENT -->
@@ -417,6 +431,10 @@
             window.location.href = val;
           }
         }
+      });
+
+      $("#mainsearchTrigger").click(function(){
+        $("#mainsearch").slideToggle();
       });
     });
   </script>
