@@ -14,22 +14,16 @@ Single.php
 -->
 
 
-	<article class="single-post">
-    		<div class="container">
-		<?php
-		while ( have_posts() ) :
-			the_post();
+			<?php
+			while ( have_posts() ) :
+				the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
+				get_template_part( 'template-parts/content', get_post_type() );
 
-			//the_post_navigation();
 
-		endwhile; // End of the loop.
-		?>
-
-		</div><!-- #div -->
-	</article><!-- #primary -->
-
+			endwhile; // End of the loop.
+			?>
+	 
 <?php
 //get_sidebar();
 get_footer();

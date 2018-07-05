@@ -19,7 +19,7 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-comments.php
+<!--comments.php-->
 
 
 	<?php

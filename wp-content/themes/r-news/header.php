@@ -39,9 +39,9 @@
             </div>
 
             <div class="column has-text-right">
-		<?php
-			get_search_form();		
-		?>
+	     <a id="mainsearchTrigger" class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-search"></i></a>
+             <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-bolt"></i></a>
+             <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-bookmark-o"></i></a>
             </div>
 
       </nav>
@@ -75,4 +75,7 @@
     </header>
     
     
-    
+     
+<?php
+	get_search_form();		
+?>

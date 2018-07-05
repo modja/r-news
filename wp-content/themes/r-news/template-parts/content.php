@@ -9,7 +9,9 @@
 
 $categories = get_the_category();
 $cat_id = $categories[0]->cat_ID;
-$ancestors = get_category_parents($cat_id, true, ', ');
+$ancestors = get_category_parents($cat_id, true,"");
+
+
 
 //read counter
 $count = get_post_meta( $post->ID, 'readcounter', true );
@@ -19,44 +21,74 @@ if ($count =='') {
   $count++;
 
 update_post_meta( $post->ID, 'readcounter', $count );
-?>
 
-<div id="post-<?php the_ID(); ?>" class="content-wrapper">
-        <div class="categories">
- 	<?php
-		echo $ancestors;
-		echo '<span class="breadcrumb-active-cat">'.the_title().'</span>';
-	?>
-        </div>
-        <h1 class="title is-1"><?php the_title()?></h1>
-        <div class="meta columns is-mobile is-gapless">
-          <div class="column has-text-left">
-            <span class="post-date">
-              Share to 
-              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-facebook"></i></a>
-              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-twitter"></i></a>
-              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-instagram"></i></a>
-              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-google-plus"></i></a>
-              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-youtube-play"></i></a>
-            </span>
-          </div>
-          <div class="column has-text-right">
-            <span class="post-read-time"><?php echo get_post_meta( $post->ID, 'timeforread', true );?> <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-bookmark-o"></i></a></span>
-          </div>
-        </div>
-        <div class="blurb">
+
+?>
+<article class="single-post">
+    		<div class="container">
+	
+		<div id="post-<?php the_ID(); ?>" class="content-wrapper">
+			
+			<nav class="breadcrumb is-size-7" aria-label="breadcrumbs">
+			  <ul>
+			    <li><a href="#">Home</a></li>
+			    <li><?php echo $ancestors; ?></li>
+			    <li class="is-active"><a href="#" aria-current="page"><?php echo the_title()?></a></li>
+			  </ul>
+			</nav>
+
+
+			<div class="categories">
+		 	<?php
+				
+						$category_array = wp_get_post_categories($post->ID);
+						$category_list = "";
+						foreach ( $category_array as $categories ) {
+				$category_list .= sprintf("<a href='%s'>%s</span>, ",get_category_link($categories),get_cat_name( $categories ));					
+						}
+			    
+				echo $category_list;
+			?>
+			</div>
+
+			<h1 class="title is-1"><?php the_title()?></h1>
+			<div class="meta columns is-mobile is-gapless">
+			  <div class="column has-text-left">
+			    <span class="post-date">
+			      Share to 
+			      <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-facebook"></i></a>
+			      <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-twitter"></i></a>
+			      <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-instagram"></i></a>
+			      <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-google-plus"></i></a>
+			      <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-youtube-play"></i></a>
+			    </span>
+			  </div>
+			  <div class="column has-text-right">
+			    <span class="post-read-time"><?php echo get_post_meta( $post->ID, 'timeforread', true );?> <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-bookmark-o"></i></a></span>
+			  </div>
+			</div>
+		</div>
+	
+	<section class="featured-image">
+	    <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+            <img src="<?php echo $image[0]; ?>">
+      	
+	</section>
+	
+
+        
+
+
+        <div class="content-wrapper content-text-editor">
 		 <?php
 		if ( 'post' === get_post_type() ) :
 				?>
-				<div class="entry-meta">
 					<?php
 					the_content();
 					?>
-				</div><!-- .entry-meta -->
 			<?php endif; 
 		?>
-        </div>
-
+ 
 <hr>
 
         <div class="tags">
@@ -113,8 +145,10 @@ update_post_meta( $post->ID, 'readcounter', $count );
         <hr>
         <br>
 
+ </div>
 
-
+	</article>
+  </div>
 
  
 <?php
@@ -132,7 +166,7 @@ update_post_meta( $post->ID, 'readcounter', $count );
 
 
 
-<?php get_template_part( 'template-parts/single/column', 'center' ); ?>
+	<?php get_template_part( 'template-parts/single/column', 'center' ); ?>
 </div>
 
 

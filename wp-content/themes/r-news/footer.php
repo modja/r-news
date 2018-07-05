@@ -54,7 +54,7 @@
 
 
  <script type="text/javascript">
-    $(document).ready(function(){
+   $(document).ready(function(){
 
       $('#main-menu').scrollTabs({
         scroll_distance: 350,
@@ -69,9 +69,6 @@
         }
       });
 
-
-
-
       jQuery(window).load(function() {
         var film_roll = new FilmRoll({
           configure_load: true,
@@ -82,38 +79,13 @@
       });
 
 
-
-      // $('.featured-slider').slick({
-      //   centerMode: true,
-      //   centerPadding: '440px',
-      //   slidesToShow: 1,
-      //   slidesToScroll: 1,
-      //   autoplay: false,
-      //   autoplaySpeed: 2000,
-      //   respondTo: 'window',
-      //   responsive: [
-      //     {
-      //       breakpoint: 1200,
-      //       settings: {
-      //         arrows: false,
-      //         centerMode: true,
-      //         centerPadding: '360px',
-      //         slidesToShow: 1
-      //       }
-      //     },
-      //     {
-      //       breakpoint: 768,
-      //       settings: {
-      //         arrows: false,
-      //         centerMode: true,
-      //         centerPadding: '40px',
-      //         slidesToShow: 1
-      //       }
-      //     }
-      //   ]
-      // });
+      $("#mainsearchTrigger").click(function(event){
+	event.preventDefault();
+        $("#mainsearch").slideToggle();
+      });
 
     });
+
   </script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
