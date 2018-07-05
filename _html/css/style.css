@@ -12239,11 +12239,11 @@ body {
 .single-post .title a {
   color: #373d3f;
 }
-.single-post .content-text-editor h1, .single-post .content-text-editor h2, .single-post .content-text-editor h3, .single-post .content-text-editor h4, .single-post .content-text-editor h5, .single-post .content-text-editor h6 {
+.single-post h1, .single-post h2, .single-post h3, .single-post h4, .single-post h5, .single-post h6 {
   font-weight: bold;
   margin: 1rem 0;
 }
-.single-post .content-text-editor p {
+.single-post p {
   margin-bottom: 1rem;
 }
 
