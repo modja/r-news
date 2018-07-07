@@ -78,11 +78,30 @@
         });
       });
 
-
+      //search
       $("#mainsearchTrigger").click(function(event){
 	event.preventDefault();
         $("#mainsearch").slideToggle();
       });
+
+
+
+
+      // Modals
+      $(".modal-button").click(function(e) {
+        e.preventDefault();
+        $(this).next().addClass("is-active");  
+      });
+
+      $(".modal-close").click(function() {
+         $(this).parent().removeClass("is-active");
+      });
+      $(".delete").click(function() {
+         $(this).parent().parent().parent().removeClass("is-active");
+      });
+
+
+
 
     });
 
