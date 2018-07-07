@@ -1,4 +1,7 @@
-	
+<?php 
+//i will use the $category_id for query
+//echo $category_id;
+?>	
 <div class="tile is-ancestor">
  	
 	<?php
