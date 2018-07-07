@@ -27,12 +27,13 @@
         <nav class="navbar columns is-mobile" role="navigation" aria-label="main navigation">
 
             <div class="column is-hidden-mobile">
-              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-facebook"></i></a>
-              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-twitter"></i></a>
-              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-instagram"></i></a>
-              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-google-plus"></i></a>
-              <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-youtube-play"></i></a>
-            </div>
+		
+	<a class="navbar-start navbar-item is-inline-block" href="<?php echo get_option("FacebookURL") ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a class="navbar-start navbar-item is-inline-block" href="<?php echo get_option("TwitterURL") ?>"><i class="fa fa-twitter"></i></a>
+        <a class="navbar-start navbar-item is-inline-block" href="<?php echo get_option("TwitterURL") ?>"><i class="fa fa-instagram"></i></a>
+        <a class="navbar-start navbar-item is-inline-block" href="<?php echo get_option("GoogleURL") ?>"><i class="fa fa-google-plus"></i></a>
+        <a class="navbar-start navbar-item is-inline-block" href="<?php echo get_option("YoutubeURL") ?>"><i class="fa fa-youtube-play"></i></a>
+          </div>
 
             <div class="column has-text-centered">
               <a class="navbar-item is-block logo-r-news" href="#"><span class="r">R</span>-NEWS</a>

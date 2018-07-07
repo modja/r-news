@@ -229,3 +229,100 @@ function layers_rnews_save_meta_box_data( $post_id ) {
 	}
 }
 add_action( 'save_post', 'layers_rnews_save_meta_box_data' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//---------------------------------------------
+// SOCIAL MEDIA
+//---------------------------------------------
+/**
+add_action('init', 'create_socialmedia');
+function create_socialmedia() {
+      $args = array(
+      'singular_label' => __('Social Media'),
+      'public' => true,
+      'labels' => array(
+             'name' => __( 'Social Media' ),
+             'singular_name' => __( 'Social Media' ),
+             'search_items' =>'Search ' . __('Social Media')),
+      'show_ui' => true,
+      'capability_type' => 'post',
+      'hierarchical' => true,
+      'rewrite' => array('slug' => 'socialmedia'),
+      'supports' => array('title',
+                          'editor',
+                          'thumbnail',
+                          'page-attributes')
+      );
+      register_post_type('socialmedia', $args);
+}
+
+add_action('init', 'init_remove_support',100);
+function init_remove_support(){
+    $post_type = 'socialmedia';
+    remove_post_type_support( $post_type, 'editor');
+}
+
+function layers_social_media_add_meta_box() {
+
+  $screens = array('socialmedia');
+  foreach ( $screens as $screen ) {
+
+	  add_meta_box(
+		'layers_rnews_sectionid',
+		__( 'Social URL', 'layerswp' ),
+		function( $post ) {
+ 
+ 			wp_nonce_field( 'layers_socialmedia_meta_box', 'layers_socialmedia_meta_box_nonce' );
+			$socialmediaurl = get_post_meta( $post->ID, 'socialmediaurl', true );
+			echo sprintf("<input type='text' name='socialmediaurl' value='%s'>",$socialmediaurl);
+			 
+			}, $screen,
+			'normal',
+			'high'
+	   );
+  	}
+}
+
+add_action( 'add_meta_boxes', 'layers_social_media_add_meta_box' );
+
+function layers_socialmedia_save_meta_box_data( $post_id ) {
+ 	$is_autosave = wp_is_post_autosave( $post_id );
+	$is_revision = wp_is_post_revision( $post_id );
+	$is_valid_nonce = ( isset( $_POST[ 'socialmediaurl' ] ) && wp_verify_nonce( $_POST[ 'socialmediaurl' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+	
+ 	if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
+	return;
+	}
+	
+ 	if( isset( $_POST[ 'socialmediaurl' ] ) ) {
+	update_post_meta( $post_id, 'socialmediaurl', sanitize_text_field( $_POST[ 'socialmediaurl' ] ) );
+	}
+}
+add_action( 'save_post', 'layers_socialmedia_save_meta_box_data' );
+**/
+
+
+add_action('admin_menu', 'my_menu_pages');
+function my_menu_pages(){
+    add_menu_page('Social Media', 'Social Media', 'manage_options', 'social-media-url', function(){
+		
+			require(dirname(__FILE__).'/admin/socialmedia.php');
+	});
+}
+
+
+?>

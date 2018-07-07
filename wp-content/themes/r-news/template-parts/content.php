@@ -44,7 +44,7 @@ update_post_meta( $post->ID, 'readcounter', $count );
 						$category_array = wp_get_post_categories($post->ID);
 						$category_list = "";
 						foreach ( $category_array as $categories ) {
-				$category_list .= sprintf("<a href='%s'>%s</span>, ",get_category_link($categories),get_cat_name( $categories ));					
+				$category_list .= sprintf("<a href='%s'>%s</a>, ",get_category_link($categories),get_cat_name( $categories ));					
 						}
 			    
 				echo $category_list;
@@ -53,15 +53,19 @@ update_post_meta( $post->ID, 'readcounter', $count );
 
 			<h1 class="title is-1"><?php the_title()?></h1>
 			<div class="meta columns is-mobile is-gapless">
-			  <div class="column has-text-left">
+			  
+			<div class="column has-text-left">
 			    <span class="post-date">
-			      Share to 
+			       
+			<?php echo do_shortcode('[Sassy_Social_Share style="background-color:#FFF;"]') ?>		
+			<!-- Share to
 			      <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-facebook"></i></a>
 			      <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-twitter"></i></a>
 			      <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-instagram"></i></a>
 			      <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-google-plus"></i></a>
 			      <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-youtube-play"></i></a>
-			    </span>
+			-->			
+		    	</span>
 			  </div>
 			  <div class="column has-text-right">
 			    <span class="post-read-time"><?php echo get_post_meta( $post->ID, 'timeforread', true );?> <a class="navbar-end navbar-item is-inline-block" href="#"><i class="fa fa-bookmark-o"></i></a></span>
@@ -104,12 +108,15 @@ update_post_meta( $post->ID, 'readcounter', $count );
 	</div>
 
         <span class="post-date">
-          Share to 
+          
+	<?php echo do_shortcode('[Sassy_Social_Share style="background-color:#FFF;"]') ?>	
+	<!-- Share to 
           <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-facebook"></i></a>
           <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-twitter"></i></a>
           <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-instagram"></i></a>
           <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-google-plus"></i></a>
           <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-youtube-play"></i></a>
+	-->
         </span>
 
         <hr>
@@ -155,7 +162,7 @@ update_post_meta( $post->ID, 'readcounter', $count );
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
-				comments_template();
+				//comments_template();
 			endif;
 
 
