@@ -1412,13 +1412,13 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   padding: 1rem;
   font-size: 14px;
 }
-.box figure figcaption .post-meta {
+.box .post-meta {
   font-size: 11px;
 }
-.box figure figcaption .post-meta .has-text-left span {
+.box .post-meta .has-text-left span {
   margin-right: 0.5rem;
 }
-.box figure figcaption .post-meta .has-text-right span {
+.box .post-meta .has-text-right span {
   margin-left: 0.5rem;
 }
 .box footer.post-meta {
