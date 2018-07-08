@@ -335,17 +335,18 @@ function create_leadmagnet() {
 
 //replacing the content for leadmagnet
 function new_content($content) {
-    $content = str_replace('[','', $content);
-    $content = str_replace(']','', $content);
+    
+   	if(strstr($content,"leadmagnet id=")){
+		$content = str_replace('[','', $content);
+		$content = str_replace(']','', $content);
+	
+		$content_arr = explode("leadmagnet id=",$content);
+		$the_id 	 = (int)$content_arr[1];
+		$post   	 = get_post($the_id);
+		$content = str_replace('leadmagnet id=' . $the_id,$post->post_content, $content);
 
-    $content_arr = explode("leadmagnet id=",$content);
-    $the_id 	 = (int)$content_arr[1];
-    $post   	 = get_post($the_id);
-
-    $content = str_replace('leadmagnet id=' . $the_id,$post->post_content, $content);
-
-      
-    return $content;
+    	}
+    	return $content;
 }
 
 add_filter('the_content','new_content');
