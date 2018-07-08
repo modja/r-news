@@ -52,29 +52,30 @@
 						<div class="blurb">
 							<p><?php the_content("read more.."); ?></p>
 						</div>
-					</figcaption>
-				</figure>
-				<footer class="post-meta columns is-mobile">
-					<div class="column has-text-left">
+				
+					<footer class="post-meta columns is-mobile">
+						<div class="column has-text-left">
 
-						<span class="post-comment">
+							<span class="post-comment">
 							<i class="fa fa-eye"></i> 
-							<?php echo (get_post_meta( $post->ID, 'readcounter', true ))==''?0:get_post_meta( $post->ID, 'readcounter', true );?>
-						</span>
+							<?php echo (get_post_meta( $post->ID, 'readcounter', true ))==''?0:get_post_meta( $post->ID, 'readcounter', true );?></span>
 
-						<span class="post-share">
-							<i class="fa fa-comments-o"></i>
-							<?php
-							$comments = wp_count_comments($post->ID);
-							echo $comments->approved;
-							?>
-						</span>
-					</div>
-					<div class="column has-text-right">
-						<span class="post-share"><i class="fa fa-share-square-o"></i></span>
-						<span class="post-bookmark"><i class="fa fa-bookmark-o"></i></span>
-					</div>
-				</footer>
+							<span class="post-share">
+								<i class="fa fa-comments-o"></i>
+								<?php
+								$comments = wp_count_comments($post->ID);
+								echo $comments->approved;
+								?>
+							</span>
+						</div>
+						<div class="column has-text-right">
+							<span class="post-share"><i class="fa fa-share-square-o"></i></span>
+							<span class="post-bookmark"><i class="fa fa-bookmark-o"></i></span>
+						</div>
+					</footer>
+					</figcaption>
+				
+				</figure>
 			</article>
 		</div>
 
