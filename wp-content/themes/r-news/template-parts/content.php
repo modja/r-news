@@ -118,7 +118,6 @@ update_post_meta( $post->ID, 'readcounter', $count );
           <a class="navbar-start navbar-item is-inline-block" href="#"><i class="fa fa-youtube-play"></i></a>
 	-->
         </span>
-
         <hr>
         <br>
 
@@ -151,6 +150,13 @@ update_post_meta( $post->ID, 'readcounter', $count );
 
         <hr>
         <br>
+	<?php
+	if ( comments_open() || get_comments_number() ) :
+				//comments_template();
+ 		echo do_shortcode('[Fancy_Facebook_Comments style="background-color:#FFF;"]');
+	endif;
+
+	?>
 
  </div>
 

@@ -9,6 +9,7 @@
 
 global $post,$cat;
 
+$exclude_id = $post->ID;
 ?>
 
 
@@ -19,15 +20,11 @@ global $post,$cat;
 	<div class="container">
 	     <div class="title is-4">Related News</div>
 	     
-	 
-
 	      <div class="column">
 		<div class="tile is-ancestor">
 		 <?php
 
-			
-
-			$args = array( 'numberposts' => 4, 'offset'=> 0 );
+			$args = array( 'numberposts' => 4, 'offset'=> 0, 'exclude'      => array($exclude_id) );
 			$myposts = get_posts( $args );
 			$number = 1;
 			foreach( $myposts as $post ){
