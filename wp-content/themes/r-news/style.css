@@ -12173,6 +12173,14 @@ body {
 .kabar-bisnis-terbaru {
   margin: 2rem 1rem 5rem;
 }
+.kabar-bisnis-terbaru .title,
+.kabar-bisnis-terbaru .subtitle {
+  position: relative;
+  top: 1rem;
+}
+.kabar-bisnis-terbaru .subtitle {
+  margin-left: 1rem;
+}
 
 /* POST CARD */
 .post-card .post-categories {
