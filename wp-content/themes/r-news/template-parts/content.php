@@ -151,10 +151,9 @@ update_post_meta( $post->ID, 'readcounter', $count );
         <hr>
         <br>
 	<?php
-	if ( comments_open() || get_comments_number() ) :
-				//comments_template();
- 		echo do_shortcode('[Fancy_Facebook_Comments style="background-color:#FFF;"]');
-	endif;
+	//if ( comments_open() || get_comments_number() ) :
+		echo do_shortcode('[Fancy_Facebook_Comments style="background-color:#FFF;"]');
+	//endif;
 
 	?>
 
