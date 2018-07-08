@@ -1412,13 +1412,13 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   padding: 1rem;
   font-size: 14px;
 }
-.box figure figcaption .post-meta {
+.box .post-meta {
   font-size: 11px;
 }
-.box figure figcaption .post-meta .has-text-left span {
+.box .post-meta .has-text-left span {
   margin-right: 0.5rem;
 }
-.box figure figcaption .post-meta .has-text-right span {
+.box .post-meta .has-text-right span {
   margin-left: 0.5rem;
 }
 .box footer.post-meta {
@@ -12135,13 +12135,23 @@ body {
 }
 .popular-post-slider .post-meta {
   position: absolute;
-  bottom: 1rem;
-  left: 1rem;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  padding: 0.75rem 1rem;
+}
+.popular-post-slider .post-meta .has-text-left span {
+  margin-right: 0.75rem;
+}
+.popular-post-slider .post-meta .has-text-right span {
+  margin-left: 0.75rem;
 }
 .popular-post-slider .post-meta span {
   display: inline-block;
-  margin-right: 1rem;
+  font-size: 14px;
+}
+.popular-post-slider .post-meta span .fa {
+  font-size: 1rem;
 }
 .popular-post-slider .post-meta .is-right {
   text-align: right;
