@@ -12316,6 +12316,19 @@ body {
   margin-top: 8px;
 }
 
+/* MAIN FOOTER */
+.main-footer {
+  padding: 2rem 1rem;
+  background-color: #7a7a7a;
+  color: #fff;
+}
+.main-footer a {
+  color: #fff;
+}
+.main-footer .footer-sosmed-link a {
+  margin-right: 1rem;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
