@@ -20,8 +20,8 @@ archive.php
 
 
 
-<?php get_template_part( 'template-parts/index/column', 'slider' ); ?>
-<?php get_template_part( 'template-parts/index/column', 'trending' ); ?>
+<?php //get_template_part( 'template-parts/index/column', 'slider' ); ?>
+<?php //get_template_part( 'template-parts/index/column', 'trending' ); ?>
 <?php get_template_part( 'template-parts/archive/column', 'center' ); ?>
 
 <?php

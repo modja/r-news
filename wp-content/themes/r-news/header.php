@@ -30,7 +30,7 @@
 		
 	<a class="navbar-start navbar-item is-inline-block" href="<?php echo get_option("FacebookURL") ?>" target="_blank"><i class="fa fa-facebook"></i></a>
         <a class="navbar-start navbar-item is-inline-block" href="<?php echo get_option("TwitterURL") ?>" target="_blank"><i class="fa fa-twitter"></i></a>
-        <a class="navbar-start navbar-item is-inline-block" href="<?php echo get_option("TwitterURL") ?>" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a class="navbar-start navbar-item is-inline-block" href="<?php echo get_option("InstagramURL") ?>" target="_blank"><i class="fa fa-instagram"></i></a>
         <a class="navbar-start navbar-item is-inline-block" href="<?php echo get_option("GoogleURL") ?>" target="_blank"><i class="fa fa-google-plus"></i></a>
         <a class="navbar-start navbar-item is-inline-block" href="<?php echo get_option("YoutubeURL") ?>" target="_blank"><i class="fa fa-youtube-play"></i></a>
           </div>

@@ -50,7 +50,23 @@
 
 
 
-
+ <!-- MAIN FOOTER -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="columns">
+        <div class="column footer-sosmed-link">
+          <a class="is-inline-block" href="<?php echo get_option("FacebookURL") ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a class="is-inline-block" href="<?php echo get_option("TwitterURL") ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a class="is-inline-block" href="<?php echo get_option("InstagramURL") ?>" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a class="is-inline-block" href="<?php echo get_option("GoogleURL") ?>" target="_blank"><i class="fa fa-google-plus"></i></a>
+          <a class="is-inline-block" href="<?php echo get_option("YoutubeURL") ?>" target="_blank"><i class="fa fa-youtube-play"></i></a>
+        </div>
+        <div class="column has-text-right"><i class="fa fa-copyright" aria-hidden="true"></i> <?php echo date('Y')?> R-NEWS</div> 
+      </div>
+    </div>
+  </footer>
+  <!-- /END MAIN FOOTER -->
+ 
 
 
 
