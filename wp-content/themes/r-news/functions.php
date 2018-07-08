@@ -319,6 +319,7 @@ function create_leadmagnet() {
              'search_items' =>'Search ' . __('Lead Magnet')),
       'show_ui' => true,
       //'capability_type' => 'post',
+      'taxonomies'  => array( 'category' ),
       'hierarchical' => true,
       'rewrite' => array('slug' => 'leadmagnet'),
       'supports' => array('title',
