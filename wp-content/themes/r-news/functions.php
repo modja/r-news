@@ -168,6 +168,25 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 
 
+//disable boxes via javascript
+add_action( "admin_footer", function(){
+    global $pagenow;
+    if ( 'post.php' === $pagenow && isset($_GET['post']) && 'leadmagnet' === get_post_type( $_GET['post'] ) ){
+      
+       echo '<script type="text/javascript">
+	var $ = jQuery;
+	jQuery(function($) {
+     		$("#heateor_ffc_meta").hide();
+		$("#heateor_sss_meta").hide();
+		$("#simpletags-settings").hide();
+	 });
+	</script>';  
+     }
+
+});
+
+
+
 
 
 
@@ -184,7 +203,7 @@ add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
 
 //Sandy : Add input type for time
 function layers_rnews_add_meta_box() {
-
+  //global $wp;
   $screens = array('post');
   foreach ( $screens as $screen ) {
 
@@ -197,13 +216,14 @@ function layers_rnews_add_meta_box() {
 			'high'
 	   );
   	}
+
 }
 
 add_action( 'add_meta_boxes', 'layers_rnews_add_meta_box' );
 
 
 function layers_rnews_callback( $post ) {
- 
+
 // Add an nonce field so we can check for it later.
 wp_nonce_field( 'layers_rnews_meta_box', 'layers_rnews_meta_box_nonce' );
 $timeforread = get_post_meta( $post->ID, 'timeforread', true );
@@ -229,92 +249,11 @@ function layers_rnews_save_meta_box_data( $post_id ) {
 	}
 }
 add_action( 'save_post', 'layers_rnews_save_meta_box_data' );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//---------------------------------------------
-// SOCIAL MEDIA
-//---------------------------------------------
-/**
-add_action('init', 'create_socialmedia');
-function create_socialmedia() {
-      $args = array(
-      'singular_label' => __('Social Media'),
-      'public' => true,
-      'labels' => array(
-             'name' => __( 'Social Media' ),
-             'singular_name' => __( 'Social Media' ),
-             'search_items' =>'Search ' . __('Social Media')),
-      'show_ui' => true,
-      'capability_type' => 'post',
-      'hierarchical' => true,
-      'rewrite' => array('slug' => 'socialmedia'),
-      'supports' => array('title',
-                          'editor',
-                          'thumbnail',
-                          'page-attributes')
-      );
-      register_post_type('socialmedia', $args);
-}
-
-add_action('init', 'init_remove_support',100);
-function init_remove_support(){
-    $post_type = 'socialmedia';
-    remove_post_type_support( $post_type, 'editor');
-}
-
-function layers_social_media_add_meta_box() {
-
-  $screens = array('socialmedia');
-  foreach ( $screens as $screen ) {
-
-	  add_meta_box(
-		'layers_rnews_sectionid',
-		__( 'Social URL', 'layerswp' ),
-		function( $post ) {
  
- 			wp_nonce_field( 'layers_socialmedia_meta_box', 'layers_socialmedia_meta_box_nonce' );
-			$socialmediaurl = get_post_meta( $post->ID, 'socialmediaurl', true );
-			echo sprintf("<input type='text' name='socialmediaurl' value='%s'>",$socialmediaurl);
-			 
-			}, $screen,
-			'normal',
-			'high'
-	   );
-  	}
-}
 
-add_action( 'add_meta_boxes', 'layers_social_media_add_meta_box' );
 
-function layers_socialmedia_save_meta_box_data( $post_id ) {
- 	$is_autosave = wp_is_post_autosave( $post_id );
-	$is_revision = wp_is_post_revision( $post_id );
-	$is_valid_nonce = ( isset( $_POST[ 'socialmediaurl' ] ) && wp_verify_nonce( $_POST[ 'socialmediaurl' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
-	
- 	if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
-	return;
-	}
-	
- 	if( isset( $_POST[ 'socialmediaurl' ] ) ) {
-	update_post_meta( $post_id, 'socialmediaurl', sanitize_text_field( $_POST[ 'socialmediaurl' ] ) );
-	}
-}
-add_action( 'save_post', 'layers_socialmedia_save_meta_box_data' );
-**/
 
+ 
 
 add_action('admin_menu', 'my_menu_pages');
 function my_menu_pages(){
@@ -322,7 +261,96 @@ function my_menu_pages(){
 		
 			require(dirname(__FILE__).'/admin/socialmedia.php');
 	});
+
+	//echo "syakika"; 	
+	//remove_meta_box( 'layers_rnews_sectionid','post','normal' ); // Author Metabox
+	
 }
 
+
+
+
+
+//custom HTML editor related on Leads magnet
+add_action( 'admin_head', 'tinymce_lead_magnet_button' );
+function tinymce_lead_magnet_button() {
+	global $pagenow;
+    
+    
+     if ( 'post.php' === $pagenow && isset($_GET['post']) && 'leadmagnet' !== get_post_type( $_GET['post'] ) ){
+    
+	     if ( current_user_can( 'edit_posts' ) && current_user_can( 'edit_pages' ) ) {
+	   	  add_filter( 'mce_buttons', 'register_tinymce_lead_magnet_button' );
+		  add_filter( 'mce_external_plugins', 'add_tinymce_lead_magnet_button' );
+		}
+     }else if ( 'post.php' === $pagenow && isset($_GET['post']) && 'leadmagnet' === get_post_type( $_GET['post'] ) ){
+    	  wp_enqueue_script( 'r-news-js-11', '//code.jquery.com/jquery-1.11.0.min.js', array(), '20180628', true );
+       
+     }
+ 
+}
+
+
+
+function register_tinymce_lead_magnet_button( $buttons ) {
+      array_push( $buttons, 'lead_magnet_button' );
+     return $buttons;
+}
+
+function add_tinymce_lead_magnet_button( $plugin_array ) {
+     $plugin_array['lead_magnet_button'] = sprintf("%s/admin/include/editor_plugin.js.php",get_template_directory_uri()) ;
+     return $plugin_array;
+}
+
+
+ 
+//---------------------------------------------
+// Lead Magnet
+//---------------------------------------------
+
+add_action('init', 'create_leadmagnet');
+function create_leadmagnet() {
+      $args = array(
+      'singular_label' => __('Lead Magnet'),
+      'public' => true,
+      'labels' => array(
+             'name' => __( 'Lead Magnet' ),
+             'singular_name' => __( 'Lead Magnet' ),
+             'search_items' =>'Search ' . __('Lead Magnet')),
+      'show_ui' => true,
+      //'capability_type' => 'post',
+      'hierarchical' => true,
+      'rewrite' => array('slug' => 'leadmagnet'),
+      'supports' => array('title',
+			  'editor',
+			  'thumbnail'
+  			  )
+      );
+	
+       register_post_type('leadmagnet', $args);
+}
+
+
+
+//replacing the content for leadmagnet
+function new_content($content) {
+    $content = str_replace('[','', $content);
+    $content = str_replace(']','', $content);
+
+    $content_arr = explode("leadmagnet id=",$content);
+    $the_id 	 = (int)$content_arr[1];
+    $post   	 = get_post($the_id);
+
+    $content = str_replace('leadmagnet id=' . $the_id,$post->post_content, $content);
+
+      
+    return $content;
+}
+
+add_filter('the_content','new_content');
+
+
+
+ 
 
 ?>
