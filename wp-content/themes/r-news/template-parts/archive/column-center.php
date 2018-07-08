@@ -74,7 +74,7 @@ global $post,$cat;
 	<?php for($i=1;$i<5;$i++){?>
 	    <article class="media">
               <div class="media-left">
-                  <div class="order-number"><?php echo $i?>.</div>
+                  <div class="order-number">0<?php echo $i?></div>
               </div>
               <div class="media-content">
                 <div class="content content-text-editor">

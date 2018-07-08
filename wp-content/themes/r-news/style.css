@@ -1394,7 +1394,8 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   color: #7a7a7a;
   display: block;
-  padding: 0px;
+  padding: 0px 0px 1rem;
+  position: relative;
 }
 .box.is-green {
   background-color: #84ccc0;
@@ -1419,6 +1420,12 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 }
 .box figure figcaption .post-meta .has-text-right span {
   margin-left: 0.5rem;
+}
+.box footer.post-meta {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 1rem 0.5rem 1rem;
 }
 
 a.box:hover, a.box:focus {
@@ -12154,7 +12161,7 @@ body {
 
 /* KABAR BISNIS TERBARU */
 .kabar-bisnis-terbaru {
-  margin: 2rem 1rem;
+  margin: 2rem 1rem 5rem;
 }
 
 /* POST CARD */
