@@ -61,6 +61,9 @@ foreach( $myposts as $post ){
 
 
 
+					</figcaption>
+				</figure>
+
 				<footer class="post-meta columns is-mobile">
 							<div class="column has-text-left">
 
@@ -82,9 +85,6 @@ foreach( $myposts as $post ){
 								<span class="post-bookmark"><i class="fa fa-bookmark-o"></i></span>
 							</div>
 						</footer>
-					</figcaption>
-				</figure>
-
 			</article>
 		</div>
 
