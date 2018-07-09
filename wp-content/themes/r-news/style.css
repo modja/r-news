@@ -1414,6 +1414,11 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 }
 .box .post-meta {
   font-size: 11px;
+  margin-top: 1rem;
+}
+.box .post-meta .title,
+.box .post-meta .subtitle {
+  position: static;
 }
 .box .post-meta .has-text-left span {
   margin-right: 0.5rem;
@@ -12173,8 +12178,8 @@ body {
 .kabar-bisnis-terbaru {
   margin: 2rem 1rem 5rem;
 }
-.kabar-bisnis-terbaru .title,
-.kabar-bisnis-terbaru .subtitle {
+.kabar-bisnis-terbaru .title.is-section-title,
+.kabar-bisnis-terbaru .subtitle.is-section-subtitle {
   position: relative;
   top: 1rem;
 }
