@@ -34,14 +34,34 @@
 	 <div class="columns">     
 	     <div class="column">
 		<?php	 
-			 $args = array( 'category' => $category->cat_ID ,'post_type' => 'leadmagnet');
-                	 $posts_leads_magnet = get_posts( $args );	
+			//leads magnet
+			 $posts_leads_magnet = get_posts( 
+					array( 'posts_per_page' 	=> 1,
+						'category' 		=> $category->cat_ID ,
+						'post_type' 		=> 'leadmagnet',
+						'orderby'   		=> 'date',
+						'order'            	=> 'DESC') 
+					);	
 			 $LMId = "";				
 			foreach($posts_leads_magnet AS $LM)
 				$LMId = $LM->ID;
 			 
+			//related promo
+			$posts_related_promo = get_posts( 
+					array( 'posts_per_page' 	=> 2,
+						'category' 		=> $category->cat_ID ,
+						'post_type' 		=> 'relatedpromo',
+						'orderby'   		=> 'date',
+						'order'            	=> 'DESC') 
+					);	
+			 $RPId = array();				
+			foreach($posts_related_promo AS $RP)
+				$RPId[] = $RP->ID;
+ 
 			 set_query_var( 'category_id', $category->cat_ID );
 			 set_query_var( 'lead_magnet_id', $LMId );
+			 set_query_var( 'related_promo_id', $RPId );
+
 
 			 get_template_part( 'template-parts/index/column', 'data01' );
 			 get_template_part( 'template-parts/index/column', 'data02' );
