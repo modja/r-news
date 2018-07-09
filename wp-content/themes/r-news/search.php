@@ -62,7 +62,7 @@ get_header();
                   <div class="post-categories">
                     <span>Entrepeuneurs</span>
                   </div>
-                  <h4 class="title">Business Gathering Bersama Ralali.Com “Drive Businesses In E-Commerce</h4>
+                  <h4 class="title"><a href="#">Business Gathering Bersama Ralali.Com “Drive Businesses In E-Commerce</a></h4>
                   <div class="post-meta columns is-mobile is-gapless">
                     <div class="column has-text-left">
                       <span class="post-date">2 jam lalu</span>
