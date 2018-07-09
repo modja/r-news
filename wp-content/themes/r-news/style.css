@@ -12284,6 +12284,9 @@ body {
   margin: 2rem 0;
   font-size: 14px;
 }
+.posts-list a {
+  color: #373d3f;
+}
 .posts-list .post-categories {
   color: #7a7a7a;
   margin-bottom: 8px;
