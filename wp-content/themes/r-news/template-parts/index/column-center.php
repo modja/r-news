@@ -33,7 +33,16 @@
 			 
 	 <div class="columns">     
 	     <div class="column">
-		<?php	 set_query_var( 'category_id', $category->cat_ID );
+		<?php	 
+			 $args = array( 'category' => $category->cat_ID ,'post_type' => 'leadmagnet');
+                	 $posts_leads_magnet = get_posts( $args );	
+			 $LMId = "";				
+			foreach($posts_leads_magnet AS $LM)
+				$LMId = $LM->ID;
+			 
+			 set_query_var( 'category_id', $category->cat_ID );
+			 set_query_var( 'lead_magnet_id', $LMId );
+
 			 get_template_part( 'template-parts/index/column', 'data01' );
 			 get_template_part( 'template-parts/index/column', 'data02' );
 			 get_template_part( 'template-parts/index/column', 'data03' ); 

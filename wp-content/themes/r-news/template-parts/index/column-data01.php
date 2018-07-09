@@ -91,7 +91,8 @@
 		style="background-image: url('http://fpoimg.com/400x600?text=2:3&bg_color=85c0db&text_color=ffffff')">
 		<figure class="">aaaaaaaaa</figure>
 	</article>
-</div>
+	
+	</div>
 
 
 

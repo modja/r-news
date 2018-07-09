@@ -108,14 +108,17 @@
       // Modals
       $(".modal-button").click(function(e) {
         e.preventDefault();
-        $(this).next().addClass("is-active");  
+	var attr_id = $(this).attr('id');
+	var modal_id = attr_id.split("-");
+	$("#modal-" + modal_id[1]).addClass("is-active");  
       });
 
       $(".modal-close").click(function() {
-         $(this).parent().removeClass("is-active");
+         $(".modal").removeClass("is-active");
       });
+
       $(".delete").click(function() {
-         $(this).parent().parent().parent().removeClass("is-active");
+         $(".modal").removeClass("is-active");
       });
 
 

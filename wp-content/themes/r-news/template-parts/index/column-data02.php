@@ -82,49 +82,66 @@
 <?php  if($c==1){ ?>	
 
 	<div class="tile is-parent is-6">
-   <article class="tile is-child box is-green post-card image-leads-magnet"  style="background-image: url('http://fpoimg.com/600x400?text=3:2&bg_color=84ccc0&text_color=ffffff')">
-    <a href="#" class="modal-button"></a>
-    <div class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">Modal title</p>
-          <button class="delete" aria-label="close"></button>
-        </header>
-        <section class="modal-card-body">
-          <div class="field">
-            <div class="control">
-              <input class="input is-primary is-rounded" type="text" placeholder="Primary input">
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <input class="input is-info is-rounded" type="text" placeholder="Info input">
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <input class="input is-success" is-rounded type="text" placeholder="Success input">
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <input class="input is-warning is-rounded" type="text" placeholder="Warning input">
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <input class="input is-danger is-rounded" type="text" placeholder="Danger input">
-            </div>
-          </div>
-        </section>
-        <footer class="modal-card-foot">
-          <button class="button is-warning is-rounded">Submit</button>
-          <button class="button is-rounded">Cancel</button>
-        </footer>
-      </div>
-    </div>
-  </article>
+	
+	
+	<?php
+		
+		if(!empty($lead_magnet_id)){
+		$LM_id   = get_post( $lead_magnet_id );  		    
+	 	$post_LM_content = $LM_id->post_content;
+		echo replaceTagModal($lead_magnet_id,$post_LM_content);	
+	?>	
+
+	 
+	<?php } ?>	
+ 	
+	
+
+	<!--
+	   <article class="tile is-child box is-green post-card image-leads-magnet"  style="background-image: url('http://fpoimg.com/600x400?text=3:2&bg_color=84ccc0&text_color=ffffff')">
+	    <a href="#" class="modal-button"></a>
+	    <div class="modal">
+	      <div class="modal-background"></div>
+	      <div class="modal-card">
+		<header class="modal-card-head">
+		  <p class="modal-card-title">Modal title</p>
+		  <button class="delete" aria-label="close"></button>
+		</header>
+		<section class="modal-card-body">
+		  <div class="field">
+		    <div class="control">
+		      <input class="input is-primary is-rounded" type="text" placeholder="Primary input">
+		    </div>
+		  </div>
+		  <div class="field">
+		    <div class="control">
+		      <input class="input is-info is-rounded" type="text" placeholder="Info input">
+		    </div>
+		  </div>
+		  <div class="field">
+		    <div class="control">
+		      <input class="input is-success" is-rounded type="text" placeholder="Success input">
+		    </div>
+		  </div>
+		  <div class="field">
+		    <div class="control">
+		      <input class="input is-warning is-rounded" type="text" placeholder="Warning input">
+		    </div>
+		  </div>
+		  <div class="field">
+		    <div class="control">
+		      <input class="input is-danger is-rounded" type="text" placeholder="Danger input">
+		    </div>
+		  </div>
+		</section>
+		<footer class="modal-card-foot">
+		  <button class="button is-warning is-rounded">Submit</button>
+		  <button class="button is-rounded">Cancel</button>
+		</footer>
+	      </div>
+	    </div>
+	  </article>
+	-->
 </div>
 <?php } //endif?>
 

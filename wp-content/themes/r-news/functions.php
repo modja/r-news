@@ -171,17 +171,34 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 //disable boxes via javascript
 add_action( "admin_footer", function(){
     global $pagenow;
-    if ( 'post.php' === $pagenow && isset($_GET['post']) && 'leadmagnet' === get_post_type( $_GET['post'] ) ){
-      
-       echo '<script type="text/javascript">
-	var $ = jQuery;
-	jQuery(function($) {
-     		$("#heateor_ffc_meta").hide();
-		$("#heateor_sss_meta").hide();
-		$("#simpletags-settings").hide();
-	 });
-	</script>';  
-     }
+    $isPrintDisplayJSScript = false;
+    
+	if ( 'post.php' === $pagenow && !empty($_GET['post']) ){
+    
+		if('leadmagnet' 	=== get_post_type( $_GET['post'] ) ||
+		   'relatedpromo' 	=== get_post_type( $_GET['post'] )){
+			$isPrintDisplayJSScript = true;		      
+	     	}
+	
+	}else if('post-new.php' === $pagenow && !empty($_GET['post_type'])){
+	
+		if('leadmagnet'	=== $_GET['post_type'] || 'relatedpromo' === $_GET['post_type'] ){
+			$isPrintDisplayJSScript = true;
+			      
+		}
+	}
+
+
+	if($isPrintDisplayJSScript){
+ 		echo '<script type="text/javascript">
+			var $ = jQuery;
+			jQuery(function($) {
+		     		$("#heateor_ffc_meta").hide();
+				$("#heateor_sss_meta").hide();
+				$("#simpletags-settings").hide();
+			 });
+			</script>';  
+	}
 
 });
 
@@ -262,8 +279,6 @@ function my_menu_pages(){
 			require(dirname(__FILE__).'/admin/socialmedia.php');
 	});
 
-	//echo "syakika"; 	
-	//remove_meta_box( 'layers_rnews_sectionid','post','normal' ); // Author Metabox
 	
 }
 
@@ -276,22 +291,63 @@ add_action( 'admin_head', 'tinymce_lead_magnet_button' );
 function tinymce_lead_magnet_button() {
 	global $pagenow;
     
-    
-     if ( 'post.php' === $pagenow && isset($_GET['post']) && 'leadmagnet' !== get_post_type( $_GET['post'] ) ){
-    
-	     if ( current_user_can( 'edit_posts' ) && current_user_can( 'edit_pages' ) ) {
-	   	  add_filter( 'mce_buttons', 'register_tinymce_lead_magnet_button' );
-		  add_filter( 'mce_external_plugins', 'add_tinymce_lead_magnet_button' );
+     $isPrintDisplayJSScript 		= false;
+     $isDisplayButtonForLeadMagnet 	= false;
+     $isDisplayButtonLeadMagnetForPost  = false;
+	
+
+     if ( 'post.php' === $pagenow && isset($_GET['post']))
+    {    
+
+	
+	if('leadmagnet' !== get_post_type( $_GET['post'] ) ){
+	 	$isDisplayButtonLeadMagnetForPost = true;
+	}
+	else if('leadmagnet' === get_post_type( $_GET['post'] ) || 'relatedpromo' === get_post_type($_GET['post'])){
+ 		$isPrintDisplayJSScript = true;
+		$isDisplayButtonForLeadMagnet = true;
+	}    
+     }else if ( 'post-new.php' === $pagenow && !empty($_GET['post_type']) && $_GET['post_type']=='leadmagnet'){
+	 	$isDisplayButtonForLeadMagnet = true;	  
+     
+    }else if ( 'post-new.php' === $pagenow && empty($_GET['post_type'])){
+	 $isDisplayButtonLeadMagnetForPost = true;	  
+    }
+
+
+    if($isDisplayButtonLeadMagnetForPost){
+	if ( current_user_can( 'edit_posts' ) && current_user_can( 'edit_pages' ) ) {
+		   	  add_filter( 'mce_buttons', 'register_tinymce_lead_magnet_button' );
+			  add_filter( 'mce_external_plugins', 'add_tinymce_lead_magnet_button' );
+			}
+    }
+
+    if($isDisplayButtonForLeadMagnet){
+		if ( current_user_can( 'edit_posts' ) && current_user_can( 'edit_pages' ) ) {
+	   	  add_filter( 'mce_buttons', 'register_tinymce_modal_button' );
+		  add_filter( 'mce_external_plugins', 'add_tinymce_modal_button' );
 		}
-     }else if ( 'post.php' === $pagenow && isset($_GET['post']) && 'leadmagnet' === get_post_type( $_GET['post'] ) ){
-    	  wp_enqueue_script( 'r-news-js-11', '//code.jquery.com/jquery-1.11.0.min.js', array(), '20180628', true );
-       
-     }
- 
+	
+    }
+
+    if($isPrintDisplayJSScript)
+ 	  wp_enqueue_script( 'r-news-js-11', '//code.jquery.com/jquery-1.11.0.min.js', array(), '20180628', true );
+    
+}
+
+//button for modal
+function register_tinymce_modal_button( $buttons ) {
+      array_push( $buttons, 'modal_button' );
+     return $buttons;
+}
+
+function add_tinymce_modal_button( $plugin_array ) {
+     $plugin_array['modal_button'] = sprintf("%s/admin/include/editor_plugin.js.2.php",get_template_directory_uri()) ;
+     return $plugin_array;
 }
 
 
-
+//lead magnet combobox
 function register_tinymce_lead_magnet_button( $buttons ) {
       array_push( $buttons, 'lead_magnet_button' );
      return $buttons;
@@ -333,6 +389,65 @@ function create_leadmagnet() {
 
 
 
+//Sandy : Add input modal for related promo
+function layers_leadmagnet_add_meta_box() {
+  //global $wp;
+  $screens = array('leadmagnet');
+  foreach ( $screens as $screen ) {
+
+	  add_meta_box(
+		'layers_leadmagnet_sectionid',
+		__( 'Modal', 'layerswp' ),
+		'layers_leadmagnet_callback',
+		$screen,
+			'normal',
+			'high'
+	   );
+  	}
+
+}
+
+add_action( 'add_meta_boxes', 'layers_leadmagnet_add_meta_box' );
+
+function layers_leadmagnet_callback( $post ) {
+
+// Add an nonce field so we can check for it later.
+wp_nonce_field( 'layers_leadmagnet_meta_box', 'layers_leadmagnet_meta_box_nonce' );
+$modal = get_post_meta( $post->ID, 'modal', true );
+echo sprintf("<textarea name='modal' rows='10' cols='95'>%s</textarea>",$modal);
+ 
+}
+
+
+function layers_leadmagnet_save_meta_box_data( $post_id ) {
+	// Checks save status
+	$is_autosave = wp_is_post_autosave( $post_id );
+	$is_revision = wp_is_post_revision( $post_id );
+	$is_valid_nonce = ( isset( $_POST[ 'modal' ] ) && wp_verify_nonce( $_POST[ 'modal' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+	
+	// Exits script depending on save status
+	if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
+	return;
+	}
+	
+	// Checks for input and sanitizes/saves if needed
+	if( isset( $_POST[ 'modal' ] ) ) {
+		update_post_meta( $post_id, 'modal',  $_POST[ 'modal' ]  );
+	}
+}
+add_action( 'save_post', 'layers_leadmagnet_save_meta_box_data' );
+ 
+
+
+
+
+
+
+
+
+
+
+
 //replacing the content for leadmagnet
 function new_content($content) {
     
@@ -344,12 +459,135 @@ function new_content($content) {
 		$the_id 	 = (int)$content_arr[1];
 		$post   	 = get_post($the_id);
 		$content = str_replace('leadmagnet id=' . $the_id,$post->post_content, $content);
+		
+		if(strstr($content,"[modal]") && strstr($content,"[/modal]")){
+			$content = replaceTagModal($the_id,$content);
+			
+		}
 
     	}
     	return $content;
 }
 
 add_filter('the_content','new_content');
+
+
+
+function replaceTagModal($post_id,$content){
+	//add wrapper
+	$modal = sprintf("<div class='modal' id='modal-%d'>%s</div>",$post_id,get_post_meta( $post_id, 'modal', true ));
+	$content = str_replace('[modal]',sprintf('<a href="#" class="modal-button" id="a-%d">',$post_id), $content);	
+	$content = str_replace('[/modal]',sprintf("</a>%s",$modal), $content);	
+ 	
+	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' ); 
+ 
+	if($image) 
+        	$content = sprintf('<article class="tile is-child box is-green post-card image-leads-magnet" style="background-image: url(%s)">%s</article>',$image[0],$content);
+	else
+		$content = sprintf('<article class="tile is-child box is-green post-card image-leads-magnet" style="">%s</article>',$content);
+	
+	return $content;
+}
+
+ 
+
+
+
+
+
+
+
+
+
+//---------------------------------------------
+// Related Promo
+//---------------------------------------------
+
+add_action('init', 'create_relatedpromo');
+function create_relatedpromo() {
+      $args = array(
+      'singular_label' => __('Related Promo'),
+      'public' => true,
+      'labels' => array(
+             'name' => __( 'Related Promo' ),
+             'singular_name' => __( 'Related Promo' ),
+             'search_items' =>'Search ' . __('Related Promo')),
+      'show_ui' => true,
+      //'capability_type' => 'post',
+      'taxonomies'  => array( 'category' ),
+      'hierarchical' => true,
+      'rewrite' => array('slug' => 'relatedpromo'),
+      'supports' => array('title',
+			  'thumbnail'
+  			  )
+      );
+	
+       register_post_type('relatedpromo', $args);
+}
+
+
+
+//Sandy : Add input URL for related promo
+function layers_relatedpromo_add_meta_box() {
+  //global $wp;
+  $screens = array('relatedpromo');
+  foreach ( $screens as $screen ) {
+
+	  add_meta_box(
+		'layers_relatedpromo_sectionid',
+		__( 'URL', 'layerswp' ),
+		'layers_relatedpromo_callback',
+		$screen,
+			'normal',
+			'high'
+	   );
+  	}
+
+}
+
+add_action( 'add_meta_boxes', 'layers_relatedpromo_add_meta_box' );
+
+function layers_relatedpromo_callback( $post ) {
+
+// Add an nonce field so we can check for it later.
+wp_nonce_field( 'layers_relatedpromo_meta_box', 'layers_relatedpromo_meta_box_nonce' );
+$relatedpromourl = get_post_meta( $post->ID, 'relatedpromourl', true );
+echo sprintf("<input type='text' name='relatedpromourl' value='%s' size='40'>",$relatedpromourl);
+ 
+}
+
+
+function layers_relatedpromo_save_meta_box_data( $post_id ) {
+	// Checks save status
+	$is_autosave = wp_is_post_autosave( $post_id );
+	$is_revision = wp_is_post_revision( $post_id );
+	$is_valid_nonce = ( isset( $_POST[ 'relatedpromourl' ] ) && wp_verify_nonce( $_POST[ 'relatedpromourl' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+	
+	// Exits script depending on save status
+	if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
+	return;
+	}
+	
+	// Checks for input and sanitizes/saves if needed
+	if( isset( $_POST[ 'relatedpromourl' ] ) ) {
+	
+		if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$_POST[ 'relatedpromourl' ]))
+  			wp_die( 'Invalid related promo URL!' );
+		
+ 		update_post_meta( $post_id, 'relatedpromourl', sanitize_text_field( $_POST[ 'relatedpromourl' ] ) );
+			
+	}
+}
+add_action( 'save_post', 'layers_relatedpromo_save_meta_box_data' );
+ 
+
+
+
+
+
+
+
+
 
 
 
