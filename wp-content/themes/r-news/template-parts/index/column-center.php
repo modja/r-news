@@ -22,8 +22,8 @@
 	    
  	<div class="columns">
 	     <div class="column">
-	      <h4 class="title is-4 is-inline-block"><?php echo $category->name?></h4> 
-		<h6 class="subtitle is-6 is-inline-block">Perkembangan bisnis saat ini</h6>
+	      <h4 class="title is-section-title is-4 is-inline-block"><?php echo $category->name?></h4> 
+			<h6 class="subtitle is-section-subtitle is-6 is-inline-block">Perkembangan bisnis saat ini</h6>
 	     </div>
 	     <div class="column is-one-quarter is-hidden-mobile has-text-right">
 		  <a class="button is-rounded is-medium" href="<?php echo $category_link?>">Lihat Semua</a>
