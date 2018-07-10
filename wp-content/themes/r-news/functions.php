@@ -529,8 +529,8 @@ function create_relatedpromo() {
 add_action('do_meta_boxes', 'rearrange_featuredimage_relatedpromo');
 function rearrange_featuredimage_relatedpromo(){
   remove_meta_box( 'postimagediv', 'relatedpromo', 'side' );
-  add_meta_box( 'layers_relatedpromo_sectionid', __( 'URL' ), 'layers_relatedpromo_callback', "relatedpromo", 'normal', 'high' );
   add_meta_box('postimagediv', __('Featured Image'), 'post_thumbnail_meta_box', 'relatedpromo', 'normal', 'high');
+  add_meta_box( 'layers_relatedpromo_sectionid', __( 'URL' ), 'layers_relatedpromo_callback', "relatedpromo", 'normal', 'high' );
              
 }
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 11, 2018 at 06:13 AM
+-- Generation Time: Jul 11, 2018 at 06:19 AM
 -- Server version: 5.7.22-0ubuntu18.04.1
 -- PHP Version: 5.6.32-1+ubuntu17.04.1+deb.sury.org+1
 
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
   `option_name` varchar(191) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
   `option_value` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `autoload` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'yes'
-) ENGINE=InnoDB AUTO_INCREMENT=845 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=847 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `wp_options`
@@ -380,13 +380,13 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (789, 'widget_cbxwpbookmark-widget', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
 (790, 'widget_cbxwpbookmarkedmost-widget', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
 (791, 'cbxwpbookmark_tools', 'a:2:{s:20:"delete_global_config";s:2:"no";s:10:"reset_data";s:3:"off";}', 'yes'),
-(837, '_site_transient_timeout_theme_roots', '1531264492', 'no'),
-(838, '_site_transient_theme_roots', 'a:4:{s:6:"r-news";s:7:"/themes";s:13:"twentyfifteen";s:7:"/themes";s:15:"twentyseventeen";s:7:"/themes";s:13:"twentysixteen";s:7:"/themes";}', 'no'),
 (839, '_site_transient_update_plugins', 'O:8:"stdClass":5:{s:12:"last_checked";i:1531262696;s:7:"checked";a:7:{s:19:"akismet/akismet.php";s:5:"4.0.3";s:31:"cbxwpbookmark/cbxwpbookmark.php";s:5:"1.4.4";s:51:"fancy-facebook-comments/fancy-facebook-comments.php";s:5:"1.1.7";s:9:"hello.php";s:3:"1.7";s:40:"mailtarget-form/MailtargetFormPlugin.php";s:5:"1.0.3";s:41:"sassy-social-share/sassy-social-share.php";s:5:"3.2.3";s:27:"simple-tags/simple-tags.php";s:5:"2.4.7";}s:8:"response";a:1:{s:19:"akismet/akismet.php";O:8:"stdClass":12:{s:2:"id";s:21:"w.org/plugins/akismet";s:4:"slug";s:7:"akismet";s:6:"plugin";s:19:"akismet/akismet.php";s:11:"new_version";s:5:"4.0.8";s:3:"url";s:38:"https://wordpress.org/plugins/akismet/";s:7:"package";s:56:"https://downloads.wordpress.org/plugin/akismet.4.0.8.zip";s:5:"icons";a:2:{s:2:"2x";s:59:"https://ps.w.org/akismet/assets/icon-256x256.png?rev=969272";s:2:"1x";s:59:"https://ps.w.org/akismet/assets/icon-128x128.png?rev=969272";}s:7:"banners";a:1:{s:2:"1x";s:61:"https://ps.w.org/akismet/assets/banner-772x250.jpg?rev=479904";}s:11:"banners_rtl";a:0:{}s:6:"tested";s:5:"4.9.6";s:12:"requires_php";b:0;s:13:"compatibility";O:8:"stdClass":0:{}}}s:12:"translations";a:0:{}s:9:"no_update";a:6:{s:31:"cbxwpbookmark/cbxwpbookmark.php";O:8:"stdClass":9:{s:2:"id";s:27:"w.org/plugins/cbxwpbookmark";s:4:"slug";s:13:"cbxwpbookmark";s:6:"plugin";s:31:"cbxwpbookmark/cbxwpbookmark.php";s:11:"new_version";s:5:"1.4.4";s:3:"url";s:44:"https://wordpress.org/plugins/cbxwpbookmark/";s:7:"package";s:62:"https://downloads.wordpress.org/plugin/cbxwpbookmark.1.4.4.zip";s:5:"icons";a:2:{s:2:"2x";s:66:"https://ps.w.org/cbxwpbookmark/assets/icon-256x256.png?rev=1727938";s:2:"1x";s:66:"https://ps.w.org/cbxwpbookmark/assets/icon-128x128.png?rev=1727938";}s:7:"banners";a:2:{s:2:"2x";s:69:"https://ps.w.org/cbxwpbookmark/assets/banner-1544x500.png?rev=1798425";s:2:"1x";s:68:"https://ps.w.org/cbxwpbookmark/assets/banner-772x250.png?rev=1811127";}s:11:"banners_rtl";a:0:{}}s:51:"fancy-facebook-comments/fancy-facebook-comments.php";O:8:"stdClass":9:{s:2:"id";s:37:"w.org/plugins/fancy-facebook-comments";s:4:"slug";s:23:"fancy-facebook-comments";s:6:"plugin";s:51:"fancy-facebook-comments/fancy-facebook-comments.php";s:11:"new_version";s:5:"1.1.7";s:3:"url";s:54:"https://wordpress.org/plugins/fancy-facebook-comments/";s:7:"package";s:66:"https://downloads.wordpress.org/plugin/fancy-facebook-comments.zip";s:5:"icons";a:1:{s:2:"1x";s:76:"https://ps.w.org/fancy-facebook-comments/assets/icon-128x128.png?rev=1710887";}s:7:"banners";a:1:{s:2:"1x";s:78:"https://ps.w.org/fancy-facebook-comments/assets/banner-772x250.png?rev=1866833";}s:11:"banners_rtl";a:0:{}}s:9:"hello.php";O:8:"stdClass":9:{s:2:"id";s:25:"w.org/plugins/hello-dolly";s:4:"slug";s:11:"hello-dolly";s:6:"plugin";s:9:"hello.php";s:11:"new_version";s:3:"1.6";s:3:"url";s:42:"https://wordpress.org/plugins/hello-dolly/";s:7:"package";s:58:"https://downloads.wordpress.org/plugin/hello-dolly.1.6.zip";s:5:"icons";a:2:{s:2:"2x";s:63:"https://ps.w.org/hello-dolly/assets/icon-256x256.jpg?rev=969907";s:2:"1x";s:63:"https://ps.w.org/hello-dolly/assets/icon-128x128.jpg?rev=969907";}s:7:"banners";a:1:{s:2:"1x";s:65:"https://ps.w.org/hello-dolly/assets/banner-772x250.png?rev=478342";}s:11:"banners_rtl";a:0:{}}s:40:"mailtarget-form/MailtargetFormPlugin.php";O:8:"stdClass":9:{s:2:"id";s:29:"w.org/plugins/mailtarget-form";s:4:"slug";s:15:"mailtarget-form";s:6:"plugin";s:40:"mailtarget-form/MailtargetFormPlugin.php";s:11:"new_version";s:5:"1.0.3";s:3:"url";s:46:"https://wordpress.org/plugins/mailtarget-form/";s:7:"package";s:58:"https://downloads.wordpress.org/plugin/mailtarget-form.zip";s:5:"icons";a:3:{s:2:"2x";s:68:"https://ps.w.org/mailtarget-form/assets/icon-256x256.png?rev=1800147";s:2:"1x";s:60:"https://ps.w.org/mailtarget-form/assets/icon.svg?rev=1800147";s:3:"svg";s:60:"https://ps.w.org/mailtarget-form/assets/icon.svg?rev=1800147";}s:7:"banners";a:2:{s:2:"2x";s:71:"https://ps.w.org/mailtarget-form/assets/banner-1544x500.png?rev=1800147";s:2:"1x";s:70:"https://ps.w.org/mailtarget-form/assets/banner-772x250.png?rev=1800147";}s:11:"banners_rtl";a:0:{}}s:41:"sassy-social-share/sassy-social-share.php";O:8:"stdClass":9:{s:2:"id";s:32:"w.org/plugins/sassy-social-share";s:4:"slug";s:18:"sassy-social-share";s:6:"plugin";s:41:"sassy-social-share/sassy-social-share.php";s:11:"new_version";s:5:"3.2.3";s:3:"url";s:49:"https://wordpress.org/plugins/sassy-social-share/";s:7:"package";s:61:"https://downloads.wordpress.org/plugin/sassy-social-share.zip";s:5:"icons";a:1:{s:2:"1x";s:71:"https://ps.w.org/sassy-social-share/assets/icon-128x128.png?rev=1300723";}s:7:"banners";a:1:{s:2:"1x";s:73:"https://ps.w.org/sassy-social-share/assets/banner-772x250.png?rev=1866721";}s:11:"banners_rtl";a:0:{}}s:27:"simple-tags/simple-tags.php";O:8:"stdClass":9:{s:2:"id";s:25:"w.org/plugins/simple-tags";s:4:"slug";s:11:"simple-tags";s:6:"plugin";s:27:"simple-tags/simple-tags.php";s:11:"new_version";s:5:"2.4.7";s:3:"url";s:42:"https://wordpress.org/plugins/simple-tags/";s:7:"package";s:60:"https://downloads.wordpress.org/plugin/simple-tags.2.4.7.zip";s:5:"icons";a:2:{s:2:"2x";s:64:"https://ps.w.org/simple-tags/assets/icon-256x256.jpg?rev=1675933";s:2:"1x";s:64:"https://ps.w.org/simple-tags/assets/icon-128x128.jpg?rev=1675933";}s:7:"banners";a:1:{s:2:"1x";s:66:"https://ps.w.org/simple-tags/assets/banner-772x250.png?rev=1675933";}s:11:"banners_rtl";a:0:{}}}}', 'no'),
 (841, '_transient_timeout_dash_v2_88ae138922fe95674369b1cb3d215a2b', '1531306840', 'no'),
 (842, '_transient_dash_v2_88ae138922fe95674369b1cb3d215a2b', '<div class="rss-widget"><p><strong>RSS Error:</strong> WP HTTP Error: cURL error 6: Could not resolve host: wordpress.org</p></div><div class="rss-widget"><p><strong>RSS Error:</strong> WP HTTP Error: cURL error 6: Could not resolve host: planet.wordpress.org</p></div>', 'no'),
-(843, '_site_transient_timeout_community-events-d41d8cd98f00b204e9800998ecf8427e', '1531307503', 'no'),
-(844, '_site_transient_community-events-d41d8cd98f00b204e9800998ecf8427e', 'a:2:{s:8:"location";a:1:{s:2:"ip";b:0;}s:6:"events";a:1:{i:0;a:7:{s:4:"type";s:6:"meetup";s:5:"title";s:39:"WPJKT Meetup #15: SEO, AMP and Adsense!";s:3:"url";s:65:"https://www.meetup.com/Jakarta-WordPress-Meetup/events/251874328/";s:6:"meetup";s:24:"Jakarta WordPress Meetup";s:10:"meetup_url";s:48:"https://www.meetup.com/Jakarta-WordPress-Meetup/";s:4:"date";s:19:"2018-07-16 18:00:00";s:8:"location";a:4:{s:8:"location";s:26:"Jakarta Selatan, Indonesia";s:7:"country";s:2:"id";s:8:"latitude";d:-6.2274849999999997;s:9:"longitude";d:106.80848;}}}}', 'no');
+(843, '_site_transient_timeout_community-events-d41d8cd98f00b204e9800998ecf8427e', '1531307932', 'no'),
+(844, '_site_transient_community-events-d41d8cd98f00b204e9800998ecf8427e', 'a:2:{s:8:"location";a:1:{s:2:"ip";b:0;}s:6:"events";a:1:{i:0;a:7:{s:4:"type";s:6:"meetup";s:5:"title";s:39:"WPJKT Meetup #15: SEO, AMP and Adsense!";s:3:"url";s:65:"https://www.meetup.com/Jakarta-WordPress-Meetup/events/251874328/";s:6:"meetup";s:24:"Jakarta WordPress Meetup";s:10:"meetup_url";s:48:"https://www.meetup.com/Jakarta-WordPress-Meetup/";s:4:"date";s:19:"2018-07-16 18:00:00";s:8:"location";a:4:{s:8:"location";s:26:"Jakarta Selatan, Indonesia";s:7:"country";s:2:"id";s:8:"latitude";d:-6.2274849999999997;s:9:"longitude";d:106.80848;}}}}', 'no'),
+(845, '_site_transient_timeout_theme_roots', '1531266534', 'no'),
+(846, '_site_transient_theme_roots', 'a:4:{s:6:"r-news";s:7:"/themes";s:13:"twentyfifteen";s:7:"/themes";s:15:"twentyseventeen";s:7:"/themes";s:13:"twentysixteen";s:7:"/themes";}', 'no');
 
 -- --------------------------------------------------------
 
@@ -797,7 +797,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (640, 205, 'relatedpromourl', 'https://stackoverflow.com'),
 (641, 205, '_heateor_ffc_meta', 'a:1:{s:17:"facebook_comments";i:0;}'),
 (642, 205, '_heateor_sss_meta', 'a:2:{s:25:"facebook_horizontal_count";s:0:"";s:24:"twitter_horizontal_count";s:0:"";}'),
-(643, 206, '_edit_lock', '1531264399:1'),
+(643, 206, '_edit_lock', '1531264739:1'),
 (644, 206, '_edit_last', '1'),
 (645, 206, 'relatedpromourl', 'https://wordpress.stackexchange.com'),
 (646, 206, '_heateor_ffc_meta', 'a:1:{s:17:"facebook_comments";i:0;}'),
@@ -1360,10 +1360,10 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (79, 2, 'wp_user-settings', 'libraryContent=browse'),
 (80, 2, 'wp_user-settings-time', '1530489528'),
 (81, 2, 'wp_dashboard_quick_press_last_post_id', '112'),
-(82, 1, 'session_tokens', 'a:3:{s:64:"fc8a915f02fe724fb89a03c0d7644aff2600e3863f590f91c455d364637d1a43";a:4:{s:10:"expiration";i:1531306822;s:2:"ip";s:3:"::1";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36";s:5:"login";i:1531134022;}s:64:"3badfb12defaf80afad1b3815767d283df285bab10ba5081a54460c1e4baad9f";a:4:{s:10:"expiration";i:1531324464;s:2:"ip";s:3:"::1";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36";s:5:"login";i:1531151664;}s:64:"846cd97eaea91690dc92b102b19f079e2ec372764682ca0a48a3ea6f32df9f6b";a:4:{s:10:"expiration";i:1531437101;s:2:"ip";s:3:"::1";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36";s:5:"login";i:1531264301;}}'),
+(82, 1, 'session_tokens', 'a:3:{s:64:"fc8a915f02fe724fb89a03c0d7644aff2600e3863f590f91c455d364637d1a43";a:4:{s:10:"expiration";i:1531306822;s:2:"ip";s:3:"::1";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36";s:5:"login";i:1531134022;}s:64:"3badfb12defaf80afad1b3815767d283df285bab10ba5081a54460c1e4baad9f";a:4:{s:10:"expiration";i:1531324464;s:2:"ip";s:3:"::1";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36";s:5:"login";i:1531151664;}s:64:"abdfcfd480d5aa43961c3d02be19378762ccfa8f143b57f940e8b567d437ce1d";a:4:{s:10:"expiration";i:1531437530;s:2:"ip";s:3:"::1";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36";s:5:"login";i:1531264730;}}'),
 (83, 1, 'closedpostboxes_leadmagnet', 'a:3:{i:0;s:19:"simpletags-settings";i:1;s:16:"heateor_ffc_meta";i:2;s:16:"heateor_sss_meta";}'),
 (84, 1, 'metaboxhidden_leadmagnet', 'a:1:{i:0;s:7:"slugdiv";}'),
-(85, 1, 'meta-box-order_relatedpromo', 'a:3:{s:4:"side";s:41:"submitdiv,categorydiv,simpletags-settings";s:6:"normal";s:50:"layers_relatedpromo_sectionid,postimagediv,slugdiv";s:8:"advanced";s:33:"heateor_ffc_meta,heateor_sss_meta";}'),
+(85, 1, 'meta-box-order_relatedpromo', 'a:3:{s:4:"side";s:41:"submitdiv,categorydiv,simpletags-settings";s:6:"normal";s:50:"postimagediv,layers_relatedpromo_sectionid,slugdiv";s:8:"advanced";s:33:"heateor_ffc_meta,heateor_sss_meta";}'),
 (86, 1, 'screen_layout_relatedpromo', '2');
 
 -- --------------------------------------------------------
@@ -1580,7 +1580,7 @@ ALTER TABLE `wp_mailtarget_forms`
 -- AUTO_INCREMENT for table `wp_options`
 --
 ALTER TABLE `wp_options`
-  MODIFY `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=845;
+  MODIFY `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=847;
 --
 -- AUTO_INCREMENT for table `wp_postmeta`
 --
