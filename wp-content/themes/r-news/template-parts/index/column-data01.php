@@ -78,8 +78,11 @@
 							</span>
 						</div>
 						<div class="column has-text-right">
-							<span class="post-share"><i class="fa fa-share-square-o"></i></span>
-							<span class="post-bookmark"><i class="fa fa-bookmark-o"></i></span>
+							<!--<span class="post-share"><i class="fa fa-share-square-o"></i></span>-->
+							<span class="post-bookmark">
+							<i class="fa fa-bookmark-o"></i>
+							<?php  echo show_cbxbookmark_btn($post->ID, $post->post_type);?> 							
+							</span>
 						</div>
 					</footer>
 			</article>

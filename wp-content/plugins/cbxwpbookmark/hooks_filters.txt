@@ -1,0 +1,140 @@
+Note: Line numbers of subject to change, we try to update as much as possible for each change
+
+##Hooks
+
+1. Setting Api:
+
+file path: wp-content\plugins\cbxwpbookmark\includes\class-cbxwpbookmark-setting.php: 597
+file path: wp-content\plugins\cbxwpbookmark\includes\class-cbxwpbookmark-setting.php: 600
+
+do_action('cbxwpbookmark_form_top_' . $form['id'], $form);
+do_action('cbxwpbookmark_form_bottom_' . $form['id'], $form);
+
+
+2. Category Hooks:
+
+
+2.1 Cetegory added
+file path: wp-content\plugins\cbxwpbookmark\public\class-cbxwpbookmark-public.php:635
+do_action('cbxbookmark_category_added', $cat_id, $user_id);
+
+2.2 Category edited
+file path: wp-content\plugins\cbxwpbookmark\public\class-cbxwpbookmark-public.php:757
+do_action('cbxbookmark_category_edit', $cat_id, $user_id);
+
+2.3 Category deleted
+filepath: wp-content\plugins\cbxwpbookmark\public\class-cbxwpbookmark-public.php:753
+
+do_action('cbxbookmark_category_deleted', $cat_id,  $user_id);
+
+3. Bookmark Hooks
+
+3.1 Bookmark removed
+file path: wp-content\plugins\cbxwpbookmark\public\class-cbxwpbookmark-public.php:820
+do_action('cbxbookmark_bookmark_removed', $bookmark_id, $user_id, $object_id, $object_type);
+
+3.2 Bookmark added
+file path: wp-content\plugins\cbxwpbookmark\public\class-cbxwpbookmark-public.php:845
+do_action('cbxbookmark_bookmark_added', $bookmark_id, $user_id, $object_id, $object_type);
+
+4  Style and Javascript
+
+4.1 Frontend before css start
+file path: wp-content\plugins\cbxwpbookmark\public\class-cbxwpbookmark-public.php:876
+do_action('cbxwpbookmark_css_start');
+
+4.2 Frontend after css end
+file path: wp-content\plugins\cbxwpbookmark\public\class-cbxwpbookmark-public.php:881
+do_action('cbxwpbookmark_css_end');
+
+4.3 Frontend before js start
+file path: wp-content\plugins\cbxwpbookmark\public\class-cbxwpbookmark-public.php:901
+do_action('cbxwpbookmark_js_start');
+
+4.4 Frontend after js end
+filepath:  file path: wp-content\plugins\cbxwpbookmark\public\class-cbxwpbookmark-public.php:949
+
+do_action('cbxwpbookmark_js_end');
+
+
+#Filters
+
+
+1.  Post Type supports
+
+file path:
+
+filepath:  wp-content\plugins\cbxwpbookmark\admin\class-cbxwpbookmark-admin.php:130
+filepath:  wp-content\plugins\cbxwpbookmark\admin\class-cbxwpbookmark-admin.php: 213
+
+$post_type_args = array(
+			'builtin' => array(
+				'options' => array(
+					'public'   => true,
+					'_builtin' => true,
+					'show_ui'  => true,
+				),
+				'label'   => esc_html__('Built in post types', 'cbxwpbookmark'),
+			)
+
+		);
+
+$post_type_args = apply_filters('cbxwpbookmark_post_types', $post_type_args);
+
+2. Global Setting Section filter
+
+filepath: wp-content\plugins\cbxwpbookmark\admin\class-cbxwpbookmark-admin.php:185
+
+return apply_filters('cbxwpbookmark_setting_sections', array(
+
+			array(
+				'id'    => 'cbxwpbookmark_basics',
+				'title' => esc_html__('Basic Settings', 'cbxwpbookmark')
+			)
+		));
+
+
+3. Gobal setting
+
+Filter each section filters
+filepath: wp-content\plugins\cbxwpbookmark\admin\class-cbxwpbookmark-admin.php:349
+$settings_fields[$section['id']] = apply_filters('cbxwpbookmark_global_' . $section['id'] . '_fields', $settings_builtin_fields[$section['id']]);
+
+Filter for fields globally
+file path: wp-content\plugins\cbxwpbookmark\admin\class-cbxwpbookmark-admin.php: 352
+$settings_fields = apply_filters('cbxwpbookmark_global_fields', $settings_fields); //final filter if need
+
+
+4.
+File path: wp-content\plugins\cbxwpbookmark\includes\class-cbxwpbookmark-activator.php:85
+Dynamic Page create for booking.
+$pages = apply_filters('cbxwpbookmark_create_pages', array(
+   				'mybookmark' => array(
+   					'name'    => _x('cbxbookmark', 'Page slug', 'cbxwpbookmark'),
+   					'title'   => _x('My Bookmarks', 'Page title', 'cbxwpbookmark'),
+   					'content' => '[cbxwpbookmark]' . '[cbxwpbookmark-mycat]'
+   				)
+   			));
+
+5. Bookmark frontend page id
+
+File path: wp-content\plugins\cbxwpbookmark\includes\class-cbxwpbookmark-activator.php:113
+
+$valid_page_found = apply_filters('cbxwpbookmark_create_page_id', $valid_page_found, $slug, $page_content);
+
+6. Frontend categories for any logged in users
+File path: wp-content\plugins\cbxwpbookmark\public\class-cbxwpbookmark-public.php:328
+$cats_by_user = apply_filters('cbxwpbookmark_user_cats_found', $cats_by_user, $user_id, $object_id, $object_type);
+
+7. frontend js localization array to pass value from php to js
+
+File path: wp-content\plugins\cbxwpbookmark\public\class-cbxwpbookmark-public.php:944
+$cbxwpbookmark_translation = apply_filters('cbxwpbookmark_public_jsvar', $cbxwpbookmark_translation);
+
+
+#ProAddon
+
+8. Default image for grid
+
+filepath: wp-content\plugins\cbxwpbookmarkaddon\cbxwpbookmarkaddon.php:711
+$img_url = apply_filters( 'cbxwpbookmarkaddon_defaultgridimage', plugins_url( 'cbxwpbookmarkaddon/assets/bookmark-placeholder-250x150.png' ) );
