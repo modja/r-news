@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 11, 2018 at 06:19 AM
+-- Generation Time: Jul 11, 2018 at 06:22 AM
 -- Server version: 5.7.22-0ubuntu18.04.1
 -- PHP Version: 5.6.32-1+ubuntu17.04.1+deb.sury.org+1
 
@@ -209,7 +209,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (30, 'hack_file', '0', 'yes'),
 (31, 'blog_charset', 'UTF-8', 'yes'),
 (32, 'moderation_keys', '', 'no'),
-(33, 'active_plugins', 'a:4:{i:0;s:31:"cbxwpbookmark/cbxwpbookmark.php";i:1;s:51:"fancy-facebook-comments/fancy-facebook-comments.php";i:2;s:41:"sassy-social-share/sassy-social-share.php";i:3;s:27:"simple-tags/simple-tags.php";}', 'yes'),
+(33, 'active_plugins', 'a:3:{i:1;s:51:"fancy-facebook-comments/fancy-facebook-comments.php";i:2;s:41:"sassy-social-share/sassy-social-share.php";i:3;s:27:"simple-tags/simple-tags.php";}', 'yes'),
 (34, 'category_base', '', 'yes'),
 (35, 'ping_sites', 'http://rpc.pingomatic.com/', 'yes'),
 (36, 'comment_max_links', '2', 'yes'),
@@ -291,7 +291,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (115, '_site_transient_update_core', 'O:8:"stdClass":4:{s:7:"updates";a:2:{i:0;O:8:"stdClass":10:{s:8:"response";s:7:"upgrade";s:8:"download";s:59:"https://downloads.wordpress.org/release/wordpress-4.9.7.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:59:"https://downloads.wordpress.org/release/wordpress-4.9.7.zip";s:10:"no_content";s:70:"https://downloads.wordpress.org/release/wordpress-4.9.7-no-content.zip";s:11:"new_bundled";s:71:"https://downloads.wordpress.org/release/wordpress-4.9.7-new-bundled.zip";s:7:"partial";s:69:"https://downloads.wordpress.org/release/wordpress-4.9.7-partial-6.zip";s:8:"rollback";b:0;}s:7:"current";s:5:"4.9.7";s:7:"version";s:5:"4.9.7";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"4.7";s:15:"partial_version";s:5:"4.9.6";}i:1;O:8:"stdClass":11:{s:8:"response";s:10:"autoupdate";s:8:"download";s:59:"https://downloads.wordpress.org/release/wordpress-4.9.7.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:59:"https://downloads.wordpress.org/release/wordpress-4.9.7.zip";s:10:"no_content";s:70:"https://downloads.wordpress.org/release/wordpress-4.9.7-no-content.zip";s:11:"new_bundled";s:71:"https://downloads.wordpress.org/release/wordpress-4.9.7-new-bundled.zip";s:7:"partial";s:69:"https://downloads.wordpress.org/release/wordpress-4.9.7-partial-6.zip";s:8:"rollback";s:70:"https://downloads.wordpress.org/release/wordpress-4.9.7-rollback-6.zip";}s:7:"current";s:5:"4.9.7";s:7:"version";s:5:"4.9.7";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"4.7";s:15:"partial_version";s:5:"4.9.6";s:9:"new_files";s:0:"";}}s:12:"last_checked";i:1531262686;s:15:"version_checked";s:5:"4.9.6";s:12:"translations";a:0:{}}', 'no'),
 (120, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1531262694;s:7:"checked";a:4:{s:6:"r-news";s:0:"";s:13:"twentyfifteen";s:3:"2.0";s:15:"twentyseventeen";s:3:"1.6";s:13:"twentysixteen";s:3:"1.5";}s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'no'),
 (124, 'can_compress_scripts', '0', 'no'),
-(140, 'recently_activated', 'a:3:{s:43:"insert-html-snippet/insert-html-snippet.php";i:1531036862;s:40:"mailtarget-form/MailtargetFormPlugin.php";i:1530983100;s:58:"ultimate-social-media-plus/ultimate_social_media_icons.php";i:1530970251;}', 'yes'),
+(140, 'recently_activated', 'a:4:{s:31:"cbxwpbookmark/cbxwpbookmark.php";i:1531264846;s:43:"insert-html-snippet/insert-html-snippet.php";i:1531036862;s:40:"mailtarget-form/MailtargetFormPlugin.php";i:1530983100;s:58:"ultimate-social-media-plus/ultimate_social_media_icons.php";i:1530970251;}', 'yes'),
 (176, 'current_theme', '', 'yes'),
 (177, 'theme_mods_r-news', 'a:4:{i:0;b:0;s:18:"nav_menu_locations";a:1:{s:6:"menu-1";i:15;}s:18:"custom_css_post_id";i:-1;s:16:"sidebars_widgets";a:2:{s:4:"time";i:1530743219;s:4:"data";a:2:{s:19:"wp_inactive_widgets";a:0:{}s:9:"sidebar-1";a:7:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";i:6;s:12:"simpletags-2";}}}}', 'yes'),
 (178, 'theme_switched', '', 'yes'),
@@ -373,7 +373,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (679, 'xyz_ihs_limit', '20', 'yes'),
 (680, 'widget_xyz_insert_html_widget', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
 (681, 'xyz_ihs_credit_dismiss', 'dis', 'yes'),
-(785, '_transient_timeout_plugin_slugs', '1531268903', 'no'),
+(785, '_transient_timeout_plugin_slugs', '1531351246', 'no'),
 (786, '_transient_plugin_slugs', 'a:7:{i:0;s:19:"akismet/akismet.php";i:1;s:31:"cbxwpbookmark/cbxwpbookmark.php";i:2;s:51:"fancy-facebook-comments/fancy-facebook-comments.php";i:3;s:9:"hello.php";i:4;s:40:"mailtarget-form/MailtargetFormPlugin.php";i:5;s:41:"sassy-social-share/sassy-social-share.php";i:6;s:27:"simple-tags/simple-tags.php";}', 'no'),
 (787, 'cbxwpbookmark_basics', 'a:8:{s:18:"cbxbookmarkpostion";s:13:"after_content";s:8:"skip_ids";s:0:"";s:13:"showinarchive";s:1:"0";s:10:"showinhome";s:1:"0";s:20:"cbxbookmarkposttypes";a:1:{i:0;s:4:"page";}s:9:"showcount";s:1:"0";s:10:"skip_roles";a:0:{}s:17:"mybookmark_pageid";i:0;}', 'yes'),
 (788, 'widget_cbxwpbookmarkcategory', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
@@ -797,7 +797,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (640, 205, 'relatedpromourl', 'https://stackoverflow.com'),
 (641, 205, '_heateor_ffc_meta', 'a:1:{s:17:"facebook_comments";i:0;}'),
 (642, 205, '_heateor_sss_meta', 'a:2:{s:25:"facebook_horizontal_count";s:0:"";s:24:"twitter_horizontal_count";s:0:"";}'),
-(643, 206, '_edit_lock', '1531264739:1'),
+(643, 206, '_edit_lock', '1531264689:1'),
 (644, 206, '_edit_last', '1'),
 (645, 206, 'relatedpromourl', 'https://wordpress.stackexchange.com'),
 (646, 206, '_heateor_ffc_meta', 'a:1:{s:17:"facebook_comments";i:0;}'),
