@@ -506,12 +506,12 @@ function replaceTagModal($post_id,$content){
 add_action('init', 'create_relatedpromo');
 function create_relatedpromo() {
       $args = array(
-      'singular_label' => __('Related Promo'),
+      'singular_label' => __('Promo Banner / ads'),
       'public' => true,
       'labels' => array(
-             'name' => __( 'Related Promo' ),
-             'singular_name' => __( 'Related Promo' ),
-             'search_items' =>'Search ' . __('Related Promo')),
+             'name' => __( 'Promo Banner / ads' ),
+             'singular_name' => __( 'Promo Banner / ads' ),
+             'search_items' =>'Search ' . __('Promo Banner / ads')),
       'show_ui' => true,
       //'capability_type' => 'post',
       'taxonomies'  => array( 'category' ),
@@ -525,28 +525,16 @@ function create_relatedpromo() {
        register_post_type('relatedpromo', $args);
 }
 
-
-
-//Sandy : Add input URL for related promo
-function layers_relatedpromo_add_meta_box() {
-  //global $wp;
-  $screens = array('relatedpromo');
-  foreach ( $screens as $screen ) {
-
-	  add_meta_box(
-		'layers_relatedpromo_sectionid',
-		__( 'URL', 'layerswp' ),
-		'layers_relatedpromo_callback',
-		$screen,
-			'normal',
-			'high'
-	   );
-  	}
-
+// rearrange featured image
+add_action('do_meta_boxes', 'rearrange_featuredimage_relatedpromo');
+function rearrange_featuredimage_relatedpromo(){
+  remove_meta_box( 'postimagediv', 'relatedpromo', 'side' );
+  add_meta_box( 'layers_relatedpromo_sectionid', __( 'URL' ), 'layers_relatedpromo_callback', "relatedpromo", 'normal', 'high' );
+  add_meta_box('postimagediv', __('Featured Image'), 'post_thumbnail_meta_box', 'relatedpromo', 'normal', 'high');
+             
 }
 
-add_action( 'add_meta_boxes', 'layers_relatedpromo_add_meta_box' );
-
+ 
 function layers_relatedpromo_callback( $post ) {
 
 // Add an nonce field so we can check for it later.
@@ -581,6 +569,7 @@ function layers_relatedpromo_save_meta_box_data( $post_id ) {
 add_action( 'save_post', 'layers_relatedpromo_save_meta_box_data' );
  
 
+   
 
 
 
