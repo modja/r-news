@@ -585,7 +585,32 @@ add_action( 'save_post', 'layers_relatedpromo_save_meta_box_data' );
 
 
 
+//modified search
+add_action('pre_get_posts', 'modified_search');
+function modified_search($query){
+    global $wp_query;
+    if($query->is_search){
+        global $wpdb;
+        $original_query = get_search_query();
+        //$modified_query = preg_replace("/(s|S)/", "$", $original_query);
+        $new_query = "
+            SELECT $wpdb->posts.ID FROM $wpdb->posts
+            WHERE $wpdb->posts.post_status = 'publish'
+	    AND $wpdb->posts.post_type != 'leadmagnet'
+	    AND $wpdb->posts.post_type != 'relatedpromo'
+            AND (($wpdb->posts.post_title LIKE '%$original_query%') OR ($wpdb->posts.post_content LIKE '%$original_query%'))
 
+            ORDER BY $wpdb->posts.post_date DESC
+            LIMIT 0, 10
+        ";
+	$results = $wpdb->get_results($new_query);
+        $post_ids = array();
+        foreach ($results as $post_id){
+            $post_ids[] = $post_id->ID;
+        }
+        $query->set('post__in', $post_ids);
+    }
+}
 
 
 
