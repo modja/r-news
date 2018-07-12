@@ -601,7 +601,36 @@ function modified_search($query){
     }
 }
 
+//FB count comment
+ function full_comment_count() {
+        global $post;
+        $url = get_permalink($post->ID);
+	$access_token = "EAAAARg7pTloBANWh7MAFNTnQwRHHGw6iZCuLmcKjBEJabynL7Pyb6NeZCFo3C9gF2qxYT0Q36bW74MDlFTSgJ1xOsbGdisQcLDWV9bE1fbU9J4ZBXz2va8mVPahGIu6rvUJeE4JHPCVI57oz7QWZBiwMAQt2hkGKpFYRvurd3tBS685ogi95eF3MYoE28kQZD";
 
+	$completeURL = sprintf('https://graph.facebook.com/?ids=%s&access_token=%s', rawurlencode($url),$access_token);
+ #echo $completeURL;
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $completeURL);
+	curl_setopt($ch, CURLOPT_HTTPGET, TRUE);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	$result = curl_exec($ch);
+	curl_close($ch);
+
+  
+        $json = json_decode($result);
+	if(!empty($json->error))
+		return 0;
+
+	$count = $json->$url->share->comment_count;
+	return $count;
+	/*
+	$wpCount = get_comments_number();
+	$realCount = $count + $wpCount;
+	if ($realCount == 0 || !isset($realCount)) {
+		    $realCount = 0;
+	}
+        return $realCount;*/
+}
 
 
 

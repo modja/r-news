@@ -66,7 +66,10 @@ class Fancy_Facebook_Comments_Shortcodes {
 		if( $title != '' ) {
 			$html .= '<' . $heading_tag . ' class="heateor_ffc_facebook_comments_title">' . $title . '</' . $heading_tag . '>';
 		}
-		$html .= '<script type="text/javascript">!function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/' . $language . '/sdk.js#xfbml=1&version=v2.9",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");</script>';
+		//$html .= '<script type="text/javascript">!function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/' . $language . '/sdk.js#xfbml=1&version=v2.9",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");</script>';
+
+		$html .= $this->facebook_comments_script($language);
+
 		$html .= $this->public_class_object->facebook_comments_moderation_optin();
 		$html .= $this->public_class_object->facebook_comments_notifier_optin();
 		$target_url = html_entity_decode( esc_url( $this->public_class_object->get_http_protocol() . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] ) );
@@ -84,5 +87,14 @@ class Fancy_Facebook_Comments_Shortcodes {
 		return $html;
 	
 	}
+
+
+
+	function facebook_comments_script($language = "en_US"){
+		$html = '<script type="text/javascript">!function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/' . $language . '/sdk.js#xfbml=1&version=v2.9",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");</script>';		
+		return $html;
+	}
+
+
 
 }

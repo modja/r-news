@@ -64,9 +64,10 @@
        <span class="post-share">
          <i class="fa fa-comments-o"></i>
          <?php
-         $comments = wp_count_comments($post->ID);
-         echo $comments->approved;
-         ?>
+		echo full_comment_count();
+		//$comments = wp_count_comments($post->ID);
+		//echo $comments->approved;
+		?>
        </span>
     </div>
     <div class="column has-text-right">

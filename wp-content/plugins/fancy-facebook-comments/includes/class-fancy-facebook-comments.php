@@ -209,6 +209,8 @@ class Fancy_Facebook_Comments {
 
 		// shortcode
 		add_shortcode( 'Fancy_Facebook_Comments', array( $plugin_shortcodes, 'facebook_comments_shortcode' ) );
+		add_shortcode( 'Fancy_Facebook_Comments_Script', array( $plugin_shortcodes, 'facebook_comments_script' ) );
+
 		
 	}
 
