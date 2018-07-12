@@ -70,8 +70,21 @@ global $post,$cat;
         <div class="popular-r-news column is-one-third">
           <div class="box">
             <div class="title is-4">Popular di R-NEWS</div>
-            
-	<?php for($i=1;$i<5;$i++){?>
+
+
+	<?php
+ 	//start query here...
+$results = $wpdb->get_results( "SELECT wp.id,wp.post_type,wp.post_title,wpm.meta_value,
+(SELECT meta_value FROM wp_postmeta AS wpm2 WHERE wpm2.post_id = wp.id AND wpm2.meta_key = 'timeforread'  LIMIT 1) AS readtime,
+wp.post_modified_gmt 
+FROM `wp_posts` AS wp
+LEFT JOIN wp_postmeta AS wpm ON (wp.ID = wpm.post_id)
+WHERE wpm.meta_key = 'readcounter' AND wp.post_type = 'post'  AND wp.post_status = 'publish'
+ORDER BY CAST(`wpm`.`meta_value` AS UNSIGNED INTEGER) DESC LIMIT 5", OBJECT );
+	 $i=1;
+	 foreach($results AS $row){
+
+	?>
 	    <article class="media">
               <div class="media-left">
                   <div class="order-number">0<?php echo $i?></div>
@@ -79,21 +92,36 @@ global $post,$cat;
               <div class="media-content">
                 <div class="content content-text-editor">
                   <div class="post-categories">
-                    <span>Entrepeuneurs</span>
-                  </div>
-                  <h4 class="title"><a href="#">Business Gathering Bersama Ralali.Com “Drive Businesses In E-Commerce</a></h4>
+<?php
+		$category_array = wp_get_post_categories($row->id);
+		$category_list = "";
+		foreach ( $category_array as $categories ) {
+		$category_list .= sprintf("<span><a href='%s'>%s</a></span> ",get_category_link($categories),get_cat_name( $categories ));
+		}
+		echo $category_list;
+		?>                    
+		
+		</div>
+                  <h4 class="title"><a href="<?php echo esc_url( get_permalink($row->id) ); ?>"><?php echo $row->post_title ?></a></h4>
                   <div class="post-meta columns is-mobile is-gapless">
                     <div class="column has-text-left">
-                      <span class="post-date">2 jam lalu</span>
+                      <span class="post-date">
+			<?php printf( _x( '%s ago', 
+				  '%s = human-readable time difference', 
+				  'your-text-domain' ),
+				  human_time_diff( get_the_time( 'U',$row->id ), current_time( 'timestamp' ) ) ); ?>
+			</span>
                     </div>
                     <div class="column has-text-right">
-                      <span class="post-read-time"><i class="fa fa-clock-o""></i> 4 menit</span>
+                      <span class="post-read-time"><i class="fa fa-clock-o""></i> <?php echo $row->readtime ?></span>
                     </div>
                   </div>
                 </div>
               </div>
             </article>
-    	<?php } ?>
+    	<?php 
+	$i++;	
+	} ?>
 
 
           </div>

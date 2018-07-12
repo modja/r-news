@@ -73,7 +73,7 @@
 								<i class="fa fa-comments-o"></i>
 
 								<?php
-								echo full_comment_count();
+								//echo full_comment_count();
 								//$comments = wp_count_comments($post->ID);
 								//echo $comments->approved;
 								?>
