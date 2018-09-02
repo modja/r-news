@@ -33,7 +33,7 @@ update_post_meta( $post->ID, 'readcounter', $count );
 			  <ul>
 			    <li><a href="#">Home</a></li>
 			    <li><?php echo $ancestors; ?></li>
-			    <li class="is-active"><a href="#" aria-current="page"><?php echo the_title()?></a></li>
+			    <!-- <li class="is-active"><a href="#" aria-current="page"><?php echo the_title()?></a></li> -->
 			  </ul>
 			</nav>
 

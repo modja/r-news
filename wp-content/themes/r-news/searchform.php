@@ -7,7 +7,7 @@
       <div class="control has-icons-left has-icons-right">
 	<form action="<?=bloginfo("url");?>" method="get" id="search">
 		<input class="input is-large" type="text" name="s" id="search" value="<?php the_search_query(); ?>" placeholder="Ketik disini"/>
- 		<span class="icon is-medium is-left"><i class="fas fa-search"></i></span>
+ 		<span class="icon is-medium is-left"><i class="fa fa-search"></i></span>
 	</form>
       </div>
     </div>

@@ -11,7 +11,7 @@
  
    <!-- TRENDING NEWS -->
  <div class="container is-fullhd">
-	  <section class="columns">	 
+	  <section class="trending-news columns">	 
 	      <div class="column">      
 		  <span class="trending-news-label">Trending News : </span>          
 			<?php st_the_tags(); ?>      

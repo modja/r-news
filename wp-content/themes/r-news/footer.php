@@ -31,10 +31,10 @@
 			    <div class="columns is-flex is-centered is-gapless">
 			      <div class="field has-addons">
 				
- 					<div class="control">
+ 					<div class="control is-expanded">
 					  <input class="input is-medium is-rounded" type="text" name="email" id="email" placeholder="Alamat Email Anda">
 					</div>
-					<div class="control">
+					<div class="control is-expanded">
 					  <a class="button is-medium is-rounded is-warning" id="formSubscribeSubmitBtn">Berlangganan</a>
 					</div>
  			      
