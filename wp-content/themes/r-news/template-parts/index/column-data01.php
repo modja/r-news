@@ -12,7 +12,8 @@
 		$args 		= array( 'numberposts' => 3, 'offset'=> 0);
 	else
 		$args 		= array( 'numberposts' => 4, 'offset'=> 0);
-
+	
+	$args["category"] = $category_id;
 	$myposts 	= get_posts( $args );
 	$number 	= 1;
 	$c 		= 1;
@@ -80,11 +81,11 @@
 							</span>
 						</div>
 						<div class="column has-text-right">
-							<span class="post-share"><i class="fa fa-share-square-o"></i></span>
+							<!--<span class="post-share"><i class="fa fa-share-square-o"></i></span>
 							<span class="post-bookmark">
 							<i class="fa fa-bookmark-o"></i>
 							<?php  //echo show_cbxbookmark_btn($post->ID, $post->post_type);?> 							
-							</span>
+							</span>-->
 						</div>
 					</footer>
 			</article>

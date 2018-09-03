@@ -1,10 +1,7 @@
 <?php
 
 	global $post;
-	if(is_array($related_promo_id) && isset($related_promo_id[1]))
-		$args 		= array( 'numberposts' => 3, 'offset'=> 5);
-	else
-		$args 		= array( 'numberposts' => 4, 'offset'=> 5);
+	$args 		= array( 'numberposts' => 4, 'offset'=> 5,'category'=>$category_id);
 	$myposts 	= get_posts( $args );
 	$number 	= 1;
 	$c 		= 1;
@@ -13,35 +10,7 @@
   
  ?>
 
-
-
-	
 	<div class="tile is-ancestor">
-
-
-
-<?php
-	//related promo
-	if(is_array($related_promo_id) && isset($related_promo_id[1])){
-		$the_related_promo_id = $related_promo_id[1];
-		$related_promo  = get_post( $the_related_promo_id  );  
-		$related_promo_image = wp_get_attachment_image_src( get_post_thumbnail_id( $the_related_promo_id), 'single-post-thumbnail' ); 
-		$related_promo_URL = get_post_meta( $the_related_promo_id, 'relatedpromourl', true );				 
-
-?>
-	<div class="tile is-parent">
-		<a href="<?php echo $related_promo_URL?>" title="<?php echo $related_promo_URL?>" target="_blank">
-		<article class="tile is-child box post-card image-related-promo" 
-			style="background-image: url('<?php echo $related_promo_image[0]?>')">
-		<figure class=""></figure>
-		</a>
-		</article> 
-	</div>
-
-	
-
-<?php }?>
-
 
 <?php
 foreach( $myposts as $post ){
@@ -112,8 +81,10 @@ foreach( $myposts as $post ){
 								</span>
 							</div>
 							<div class="column has-text-right">
+								<!--
 								<span class="post-share"><i class="fa fa-share-square-o"></i></span>
 								<span class="post-bookmark"><i class="fa fa-bookmark-o"></i></span>
+								-->
 							</div>
 						</footer>
 			</article>

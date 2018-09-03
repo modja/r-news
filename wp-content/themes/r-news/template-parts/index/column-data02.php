@@ -3,7 +3,7 @@
 
 	<?php
   global $post;
-  $args 		= array( 'numberposts' => 2, 'offset'=> 3);
+  $args 		= array( 'numberposts' => 2, 'offset'=> 3,'category'=> $category_id);
   $myposts 	= get_posts( $args );
   $number 	= 1;
   $c 		= 1;
@@ -71,8 +71,10 @@
        </span>
     </div>
     <div class="column has-text-right">
+	<!--
       <span class="post-share"><i class="fa fa-share-square-o"></i></span>
       <span class="post-bookmark"><i class="fa fa-bookmark-o"></i></span>
+	-->
     </div>
         </footer>
 
